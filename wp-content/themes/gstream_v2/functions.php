@@ -369,7 +369,7 @@ function wp_test_test($categories){
 function showby(){
 	return array(12,18,24,36);
 }
-$showby = in_array($_GET['showby'], showby()) ? $_GET['showby'] : '12';
+$showby = in_array(intval($_GET['showby'] ?? 0), showby()) ? intval($_GET['showby']) : 12;
 add_filter( 'loop_shop_per_page', function($cols) { return $showby;}, 20 );
 
 
@@ -446,8 +446,8 @@ add_action('wp_ajax_ajax_count_item_to_cart', 'count_item_to_cart' );
 
 function update_item_to_cart(){
 	global $woocommerce;
-	$count = $_REQUEST['count'];
-	$product_id = $_REQUEST['product_id'];
+	$count = intval($_REQUEST['count'] ?? 0);
+	$product_id = sanitize_text_field($_REQUEST['product_id'] ?? '');
 	$items = $woocommerce->cart->get_cart();
 	foreach ($items as $key => $value) {
 		if($value['key'] == $product_id){
@@ -465,7 +465,7 @@ add_action('wp_ajax_ajax_update_item_to_cart', 'update_item_to_cart' );
 
 function remove_item_to_cart(){
 	global $woocommerce;
-	$product_id = $_REQUEST['product_id'];
+	$product_id = sanitize_text_field($_REQUEST['product_id'] ?? '');
 	$items = $woocommerce->cart->get_cart();
 	foreach ($items as $key => $value) {
 		if($value['key'] == $product_id){
