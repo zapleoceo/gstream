@@ -131,13 +131,47 @@ ALTER TABLE gs_actionscheduler_actions ENGINE=InnoDB;
 
 ## Пріоритетний план дій
 
-| Пріоритет | Задача | Ризик |
-|-----------|--------|-------|
-| 🔴 Зараз | Хотфікс AUTO_INCREMENT на `actionscheduler_actions` | Низький |
-| 🔴 Зараз | Активувати SMTP-плагін | Низький |
-| 🔴 Цього тижня | Оновити PHP 7.3 → 8.1+ | Середній |
-| 🟠 Цього тижня | Запустити WooCommerce DB updater | Середній |
-| 🟠 Цього тижня | Очистити сміття БД (revisions, spam) | Низький |
-| 🟡 Планово | Конвертація MyISAM → InnoDB | Середній (бекап) |
-| 🟡 Планово | Оптимізація зображень + WebP | Низький |
-| 🟡 Планово | Видалити неактивні/старі плагіни | Низький |
+| Пріоритет | Задача | Ризик | Статус |
+|-----------|--------|-------|--------|
+| 🔴 Зараз | Хотфікс AUTO_INCREMENT на `actionscheduler_actions` | Низький | ✅ Виконано |
+| 🔴 Зараз | Активувати SMTP-плагін | Низький | ✅ Виконано (⚠️ пароль потребує оновлення) |
+| 🔴 Цього тижня | Оновити PHP 7.3 → 8.1+ | Середній | ⏳ Хостинг-панель |
+| 🟠 Цього тижня | Запустити WooCommerce DB updater | Середній | ⏳ WP Admin → WooCommerce |
+| 🟠 Цього тижня | Очистити сміття БД (revisions, spam) | Низький | ✅ Виконано |
+| 🟡 Планово | Конвертація MyISAM → InnoDB | Середній (бекап) | ✅ Виконано (63 таблиці, 2026-05-16) |
+| 🟡 Планово | Оптимізація зображень + WebP | Низький | ⏳ Підключити Imagify/ShortPixel |
+| 🟡 Планово | Видалити неактивні/старі плагіни | Низький | ✅ Частково (старі папки _gmace, _smsfly, _1centerprise видалено) |
+
+---
+
+## ✅ Виконані роботи (2026-05-16)
+
+### Код / git
+- Видалено небезпечні файли: `testmail.php`, `fix-mysql-auth.php`, `php.ini`, `.user.ini`
+- Видалено старі папки плагінів: `_gmace`, `_smsfly`, `_woocommerce-and-1centerprise-data-exchange`, `_OLD__...`
+- Видалено мертвий код теми: `old_header.php`, `old_footer.php`, `test.php`
+- Виправлено `wp-translitera`: `$value{0}` → `$value[0]` (PHP 8 сумісність)
+- Виправлено дублювання handle у `wp_enqueue_script` + CSS через `wp_enqueue_style`
+- Санітизація вводу: `$_GET['showby']`, `$_REQUEST['count']`, `$_REQUEST['product_id']`
+- SQL-захист: `array_map('intval', $categories)` у price range і count queries
+- Оновлено `.gitignore`
+
+### БД
+- `gs_actionscheduler_actions.action_id` — додано `AUTO_INCREMENT` (помилка `Duplicate entry '0'` усунена)
+- Очищено: 3 362 ревізій, 1 745 спам-коментарів, 45 transients, 148 старих ActionScheduler логів
+- Конвертовано **63 таблиці** з MyISAM → InnoDB
+
+### WP Admin
+- Активовано WP Mail SMTP, налаштовано SMTP (mail.adm.tools, TLS, 587)
+- ⚠️ Пароль `zakaz@gstream.com.ua` — AUTH 535, потрібно оновити з хостинг-панелі
+
+## ⏳ Залишилось
+
+| Задача | Де виконати |
+|--------|------------|
+| Оновити SMTP-пароль | Хостинг `mail.adm.tools` → WP Admin → WP Mail SMTP |
+| WooCommerce DB updater (3.6.5 → 8.6.4) | WP Admin → WooCommerce → Run updater |
+| PHP 7.3 → 8.1+ | Хостинг-панель |
+| Видалити старі теми: `gstream`, `twentytwenty` | WP Admin → Теми |
+| Активувати Akismet | WP Admin → Плагіни |
+| Оптимізація зображень + WebP | Imagify або ShortPixel |
