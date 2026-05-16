@@ -121,7 +121,7 @@ class wp_translitera {//wp=>3.2 php=>5.2.4
         foreach ($rules as $key => $value) {
             $tr_rules[$key] = $value;
             if (strlen($value) > 0) {
-                $tr_rules[strtoupper($key)] = strtoupper($value{0}).substr($value, 1);
+                $tr_rules[strtoupper($key)] = strtoupper($value[0]).substr($value, 1);
             } else {
                 $tr_rules[strtoupper($key)] = $value;
             }
