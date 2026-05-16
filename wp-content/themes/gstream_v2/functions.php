@@ -311,9 +311,9 @@ function wpp_get_extremes_price_in_product_cat( $categories ) {
 		INNER JOIN {$wpdb->term_relationships} ON ({$wpdb->posts}.ID = {$wpdb->term_relationships}.object_id)
 		INNER JOIN {$wpdb->wc_product_meta_lookup} ON ({$wpdb->posts}.ID = {$wpdb->wc_product_meta_lookup}.product_id) 
 		WHERE  
-		( {$wpdb->term_relationships}.term_taxonomy_id IN (".implode(',', $categories).") ) 
-		AND {$wpdb->posts}.post_type = 'product' 
-		AND {$wpdb->posts}.post_status = 'publish' 
+		( {$wpdb->term_relationships}.term_taxonomy_id IN (".implode(',', array_map('intval', $categories)).") )
+		AND {$wpdb->posts}.post_type = 'product'
+		AND {$wpdb->posts}.post_status = 'publish'
 		");
 
 
@@ -330,8 +330,8 @@ function wpp_get_extremes_count_products_in_cat( $attribute, $categories ) {
 		INNER JOIN {$wpdb->term_relationships} AS attribute ON {$wpdb->posts}.ID = attribute.object_id
 		INNER JOIN {$wpdb->term_relationships} AS category ON {$wpdb->posts}.ID = category.object_id
 		WHERE  
-		attribute.term_taxonomy_id IN (".$attribute.")
-		AND category.term_taxonomy_id IN (".implode(',',$categories).")
+		attribute.term_taxonomy_id IN (".intval($attribute).")
+		AND category.term_taxonomy_id IN (".implode(',', array_map('intval', $categories)).")
 		AND {$wpdb->posts}.post_type = 'product' 
 		AND {$wpdb->posts}.post_status = 'publish' 
 		");
