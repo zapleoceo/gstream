@@ -1,0 +1,1076 @@
+# Translation of Plugins - FileBird &#8211; WordPress Media Library Folders &amp; File Manager - Development (trunk) in Russian
+# This file is distributed under the same license as the Plugins - FileBird &#8211; WordPress Media Library Folders &amp; File Manager - Development (trunk) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-09-11 08:54:17+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.0.0-alpha.7\n"
+"Language: ru\n"
+"Project-Id-Version: Plugins - FileBird &#8211; WordPress Media Library Folders &amp; File Manager - Development (trunk)\n"
+
+#: views/pages/settings/tab-tools.php:98
+msgid "Assign WPML existing translated media to FileBird folders."
+msgstr "Назначьте существующие переведенные медиафайлы WPML папкам FileBird."
+
+#: views/pages/settings/tab-tools.php:93
+msgid "Sync"
+msgstr "Синхронизировать"
+
+#: views/pages/settings/tab-tools.php:87
+msgid "Sync WPML"
+msgstr "Синхронизировать WPML"
+
+#: includes/Support/WPML.php:67
+msgid "Done!"
+msgstr "Готово!"
+
+#: views/pages/settings/tab-import.php:213
+msgid "Learn more"
+msgstr "Подробнее"
+
+#: includes/I18n.php:166
+msgid "All folders"
+msgstr "Все папки"
+
+#: includes/I18n.php:165
+msgid "Processing..."
+msgstr "Обработка…"
+
+#: views/pages/settings/tab-tools.php:58
+msgid "Generate attachment size used in \"Sort by size\" function."
+msgstr "Сгенерируйте размер вложения, используемый в функции \"Сортировка по размеру\"."
+
+#: views/pages/settings/tab-tools.php:46
+msgid "Attachment Size"
+msgstr "Размер вложения"
+
+#: views/pages/settings/tab-tools.php:39
+msgid "Please see FileBird API for developers %1$shere%2$s."
+msgstr "Пожалуйста, ознакомьтесь с API FileBird для разработчиков %1$sсдесь%2$s."
+
+#: views/pages/settings/tab-settings.php:80
+msgid "Dropbox"
+msgstr "DropBox"
+
+#: views/pages/settings/tab-settings.php:71
+msgid "Windows 11"
+msgstr "Windows 11"
+
+#: views/pages/settings/tab-settings.php:62
+msgid "FileBird Default"
+msgstr "FileBird по умолчанию"
+
+#: views/pages/settings/tab-settings.php:52
+msgid "FileBird Theme"
+msgstr "Тема FileBird"
+
+#: views/pages/settings/tab-settings.php:45
+msgid "Count files in both parent folder and subfolders"
+msgstr "Посчитать файлы как в родительской папке, так и в подпапках."
+
+#: views/pages/settings/tab-settings.php:42
+msgid "Count files in each folder"
+msgstr "Подсчет файлов в каждой папке"
+
+#: views/pages/settings/tab-settings.php:37
+msgid "Folder Counter"
+msgstr "Счётчик папок"
+
+#: views/pages/settings/tab-settings.php:24
+msgid "Show Breadcrumb"
+msgstr "Показать навигационную цепочку"
+
+#: views/pages/settings/tab-import.php:67
+msgid "We found you have %1$s(%2$s)%3$s categories you created from %4$sWP Media folder%5$s plugin."
+msgstr "Мы обнаружили, что у вас есть %1$s(%2$s)%3$s категории, созданные с помощью плагина %4$sWP Media folder%5$s."
+
+#: views/pages/settings/tab-import.php:25
+#: views/pages/settings/tab-import.php:47
+#: views/pages/settings/tab-import.php:69
+#: views/pages/settings/tab-import.php:91
+#: views/pages/settings/tab-import.php:113
+#: views/pages/settings/tab-import.php:135
+#: views/pages/settings/tab-import.php:157
+msgid " Would you like to import to %1$sFileBird%2$s?"
+msgstr " Хотели бы вы импортировать в %1$sFileBird%2$s?"
+
+#: views/pages/settings/tab-active.php:89
+msgid "GO PRO"
+msgstr "Перейти на Pro"
+
+#: views/pages/settings/tab-active.php:82
+msgid "VIP live chat support"
+msgstr "VIP онлайн-чат поддержки"
+
+#: views/pages/settings/tab-active.php:73
+msgid "One-time payment"
+msgstr "Однократный платеж"
+
+#: views/pages/settings/tab-active.php:64
+msgid "File count, breadcrumb, folder custom colors, and more"
+msgstr "Количество файлов, хлебные крошки, пользовательские цвета папок и многое другое"
+
+#: views/pages/settings/tab-active.php:55
+msgid "Folder themes (Windows 11 and Dropbox)"
+msgstr "Темы папок (Windows 11 и Dropbox)"
+
+#: views/pages/settings/tab-active.php:46
+msgid "Sort files and folders"
+msgstr "Сортировать файлы и папки"
+
+#: views/pages/settings/tab-active.php:37
+msgid "Advanced third-party compatibility"
+msgstr "Расширенная совместимость с сторонними программами"
+
+#: views/pages/settings/tab-active.php:28
+msgid "Download entire folders in ZIP"
+msgstr "Скачать целые папки в ZIP"
+
+#: views/pages/settings/tab-active.php:16
+msgid "Lifetime license"
+msgstr "Пожизненная лицензия"
+
+#: views/pages/settings/tab-active.php:15
+msgid "Explore the best of FileBird"
+msgstr "Исследуйте лучшее из FileBird"
+
+#: views/pages/settings/tab-active.php:12
+msgid "Upgrade to FileBird Pro"
+msgstr "Обновите до FileBird Pro"
+
+#: includes/Recommended/views/content.php:246
+msgid "This plugin doesn&#8217;t work with your version of PHP."
+msgstr "Этот плагин&#8217; не работает с вашей версией PHP."
+
+#: includes/Recommended/views/content.php:237
+msgid "This plugin doesn&#8217;t work with your version of WordPress."
+msgstr "Этот плагин&#8217; не работает с вашей версией WordPress."
+
+#. translators: %s: URL to Update PHP page.
+#: includes/Recommended/views/content.php:231
+#: includes/Recommended/views/content.php:250
+msgid "<a href=\"%s\">Learn more about updating PHP</a>."
+msgstr "<a href=\"%s\">Узнайте больше об обновлении PHP</a>."
+
+#. translators: %s: URL to WordPress Updates screen.
+#: includes/Recommended/views/content.php:225
+#: includes/Recommended/views/content.php:241
+msgid "<a href=\"%s\">Please update WordPress</a>."
+msgstr "<a href=\"%s\">Обновите WordPress</a>."
+
+#. translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page.
+#: includes/Recommended/views/content.php:217
+msgid "<a href=\"%1$s\">Please update WordPress</a>, and then <a href=\"%2$s\">learn more about updating PHP</a>."
+msgstr "<a href=\"%1$s\">Обновите WordPress</a>, затем <a href=\"%2$s\">узнайте больше об обновлении PHP</a>."
+
+#: includes/Recommended/views/content.php:213
+msgid "This plugin doesn&#8217;t work with your versions of WordPress and PHP."
+msgstr "Этот плагин&#8217; не работает с вашими версиями WordPress и PHP."
+
+#: includes/Recommended/views/content.php:183
+msgctxt "plugin"
+msgid "Installed"
+msgstr "Установлен"
+
+#: includes/Recommended/views/content.php:177
+msgctxt "plugin"
+msgid "Cannot Activate"
+msgstr "Невозможно активировать"
+
+#. translators: %s: Plugin name.
+#: includes/Recommended/views/content.php:164
+msgctxt "plugin"
+msgid "Network Activate %s"
+msgstr "Активировать для сети %s"
+
+#: includes/Recommended/views/content.php:162
+msgid "Network Activate"
+msgstr "Активировать для сети"
+
+#. translators: %s: Plugin name.
+#: includes/Recommended/views/content.php:151
+msgctxt "plugin"
+msgid "Activate %s"
+msgstr "Активировать %s"
+
+#: includes/Recommended/views/content.php:144
+msgctxt "plugin"
+msgid "Activated"
+msgstr "Активирован"
+
+#: includes/Recommended/views/content.php:127
+msgctxt "plugin"
+msgid "Cannot Update"
+msgstr "Невозможно обновить"
+
+#: includes/Recommended/views/content.php:110
+#: includes/Recommended/views/content.php:121
+msgid "Update Now"
+msgstr "Обновить сейчас"
+
+#. translators: %s: Plugin name and version.
+#: includes/Recommended/views/content.php:108
+#: includes/Recommended/views/content.php:119
+msgctxt "plugin"
+msgid "Update %s now"
+msgstr "Обновить %s сейчас"
+
+#: includes/Recommended/views/content.php:91
+msgctxt "plugin"
+msgid "Cannot Install"
+msgstr "Установка невозможна"
+
+#: includes/Recommended/views/content.php:77
+#: includes/Recommended/views/content.php:85
+msgid "Install Now"
+msgstr "Установить сейчас"
+
+#. translators: %s: Plugin name and version.
+#: includes/Recommended/views/content.php:76
+#: includes/Recommended/views/content.php:84
+msgctxt "plugin"
+msgid "Install %s now"
+msgstr "Установить %s сейчас"
+
+#: includes/Recommended/Recommended.php:553
+msgid "Recommended"
+msgstr "Рекомендуемые"
+
+#: includes/Recommended/Recommended.php:463
+msgid "Update success"
+msgstr "Успешно обновлено"
+
+#: includes/Recommended/Recommended.php:439
+msgid "Install success"
+msgstr "Установка успешна"
+
+#: includes/Recommended/Recommended.php:356
+msgid "Activate success"
+msgstr "Активируй успех"
+
+#: includes/Recommended/Recommended.php:319
+#: includes/Recommended/Recommended.php:363
+#: includes/Recommended/Recommended.php:473
+msgid "Error exception."
+msgstr "Ошибка исключения."
+
+#: includes/Recommended/Recommended.php:311
+msgid "Get data success"
+msgstr "Получение данных успешно"
+
+#: includes/Recommended/Recommended.php:294
+#: includes/Recommended/Recommended.php:342
+#: includes/Recommended/Recommended.php:390
+msgid "Nonce is invalid"
+msgstr "Nonce недействителен."
+
+#: includes/Recommended/Recommended.php:155
+#: includes/Recommended/Recommended.php:245
+#: includes/Recommended/Recommended.php:553
+msgid "Recommended Plugins"
+msgstr "Рекомендуемые плагины"
+
+#: includes/I18n.php:164
+msgid "Change Color"
+msgstr "Сменить цвет"
+
+#: includes/I18n.php:163 assets/dist/js/app.js:1
+msgid "PRO"
+msgstr "PRO"
+
+#: includes/I18n.php:162
+msgid "Size Descending"
+msgstr "По убыванию размера"
+
+#: includes/I18n.php:161
+msgid "Size Ascending"
+msgstr "По возрастанию размера"
+
+#: includes/I18n.php:160
+msgid "By Size"
+msgstr "По размеру"
+
+#: includes/I18n.php:159
+msgid "Please activate FileBird license to use this feature."
+msgstr "Пожалуйста, активируйте лицензию FileBird, чтобы использовать эту функцию."
+
+#: includes/I18n.php:158
+msgid "Successfully imported!"
+msgstr "Успешно импортировано!"
+
+#: includes/I18n.php:157
+msgid "Successfully exported!"
+msgstr "Успешно экспортировано!"
+
+#: includes/I18n.php:155
+msgid "Imported!"
+msgstr "Импортировано!"
+
+#: views/pages/settings/tab-tools.php:65
+msgid "Danger Zone"
+msgstr "Опасная зона"
+
+#: views/pages/settings/tab-tools.php:30
+msgid "REST API key"
+msgstr "Ключ REST API"
+
+#: views/pages/settings/tab-import.php:212
+msgid "(Please check to make sure that there is no duplicated name. The current folder structure is preserved.)"
+msgstr "(Убедитесь, что имя не повторяется. Текущая структура папок сохраняется.)"
+
+#: views/pages/settings/tab-import.php:211
+msgid "Choose FileBird CSV file to import."
+msgstr "Выбрать файл FileBird CSV для импорта."
+
+#: views/pages/settings/tab-import.php:194
+msgid "Import CSV"
+msgstr "Импорт CSV"
+
+#: views/pages/settings/tab-import.php:187
+msgid "The current folder structure will be exported."
+msgstr "Будет экспортирована текущая структура папок."
+
+#: views/pages/settings/tab-import.php:182
+msgid "Export Now"
+msgstr "Экспортировать сейчас"
+
+#: views/pages/settings/tab-import.php:175
+msgid "Export CSV"
+msgstr "Экспорт CSV"
+
+#: views/pages/settings/tab-import.php:169
+msgid "Export"
+msgstr "Экспорт"
+
+#: views/pages/html-settings.php:41
+msgid "Import/Export"
+msgstr "Импорт/экспорт"
+
+#: views/pages/html-settings.php:33
+msgid "Tools"
+msgstr "Инструменты"
+
+#: includes/I18n.php:154
+msgid "Flat Tree View"
+msgstr "Плоское дерево"
+
+#: includes/I18n.php:153
+msgid "Default Tree View"
+msgstr "Древовидный вид по умолчанию"
+
+#: includes/Controller/Folder.php:810
+msgid "The uploaded file was not generated by FileBird. Please check again."
+msgstr "Загруженный файл не был сгенерирован FileBird. Проверьте еще раз."
+
+#: includes/Controller/Folder.php:627
+msgid "Click on the button to move this file to another folder"
+msgstr "Нажмите на кнопку, чтобы переместить этот файл в другую папку"
+
+#: includes/Controller/Folder.php:626
+msgid "FileBird folder:"
+msgstr "Папка FileBird:"
+
+#: views/pages/settings/tab-import.php:122
+msgid "Folders by Premio"
+msgstr "Папки от Premio"
+
+#: includes/YC.php:65
+msgid "Install for Free"
+msgstr "Установить бесплатно"
+
+#: includes/YC.php:63
+msgid "YayMail helps you easily customize your WooCommerce emails with email builder. Try it today!"
+msgstr "YayMail поможет вам легко настроить электронные письма WooCommerce с помощью конструктора электронной почты. Попробуйте сегодня!"
+
+#: includes/YC.php:62
+msgid "Email Customizer for WooCommerce"
+msgstr "Настройщик электронной почты для WooCommerce"
+
+#: includes/I18n.php:152
+msgid "You have some folders created by other media plugins. Would you like to import them?"
+msgstr "У вас есть несколько папок, созданных другими медиа-плагинами. Вы хотите их импортировать?"
+
+#: includes/I18n.php:150
+msgid "Go to import"
+msgstr "Перейти к импорту"
+
+#: includes/I18n.php:149
+msgid "Import folders to FileBird"
+msgstr "Импорт папок в FileBird"
+
+#: includes/I18n.php:81
+msgid "By File Name"
+msgstr "По имени файла"
+
+#: includes/Fallback.php:12
+msgid "Read more details."
+msgstr "Читайте подробнее."
+
+#: includes/Fallback.php:11
+msgid "It looks like you have another FileBird version installed, please delete it before activating this new version. All of the settings and data are still preserved."
+msgstr "Похоже, что у вас установлена другая версия FileBird, пожалуйста, удалите ее перед активацией новой версии. Все настройки и данные сохраняются."
+
+#: includes/I18n.php:145
+msgid "Total size"
+msgstr "Общий размер"
+
+#: includes/I18n.php:144
+msgid "Less than a min"
+msgstr "Меньше минуты"
+
+#: includes/I18n.php:143
+msgid "Uploaded"
+msgstr "Загруженные"
+
+#: views/pages/settings/tab-import.php:100
+msgid "HappyFiles by Codeer"
+msgstr "HappyFiles от Codeer"
+
+#: includes/I18n.php:142
+msgid "Expand"
+msgstr "Раскрыть"
+
+#: includes/I18n.php:141
+msgid "Collapse"
+msgstr "Свернуть"
+
+#: includes/I18n.php:47
+msgid "Unsuccessfully moved"
+msgstr "Неудачное перемещение"
+
+#: includes/I18n.php:139
+msgid "View details."
+msgstr "Посмотреть детали."
+
+#: includes/I18n.php:140
+msgid "Turn off for 7 days"
+msgstr "Выключить на 7 дней"
+
+#: includes/I18n.php:137
+msgid "You're using a third party plugin, which is supported in FileBird PRO. Please upgrade to browse files faster and get more done."
+msgstr "Вы используете сторонний плагин, который поддерживается в FileBird PRO. Обновите, чтобы просматривать файлы быстрее и делать больше."
+
+#: includes/I18n.php:136
+msgid "Do more with FileBird PRO"
+msgstr "Сделайте больше с FileBird PRO"
+
+#: includes/I18n.php:135
+msgid "To use FileBird folders with your current page builder/plugin, please upgrade to PRO version."
+msgstr "Чтобы использовать папки FileBird с вашим текущим компоновщиком страниц/плагином, обновите его до версии PRO."
+
+#: includes/I18n.php:134
+msgid "Unlock new features"
+msgstr "Разблокируйте новые функции"
+
+#: includes/I18n.php:45
+msgid "Generating download link..."
+msgstr "Генерирование ссылки на скачивание..."
+
+#: includes/I18n.php:43
+msgid "Download"
+msgstr "Скачать"
+
+#: includes/Support/DocumentGallery.php:26
+msgid "This folder ID does not exist, please check again."
+msgstr "IDр этой папки не существует, проверьте еще раз."
+
+#: includes/Controller/Folder.php:495 includes/Controller/Folder.php:518
+msgid "A folder with this name already exists. Please choose another one."
+msgstr "Папка с таким именем уже существует. Выберите другую."
+
+#: includes/I18n.php:65
+msgid "Previous folder selected"
+msgstr "Выбрана предыдущая папка"
+
+#: includes/Controller/Api.php:139 includes/Controller/Api.php:170
+msgid "folder_id is missing."
+msgstr "folder_id is missing."
+
+#: includes/I18n.php:133
+msgid "Failed to save settings. Please try again!"
+msgstr "Не удалось сохранить настройки. Попробуйте еще раз!"
+
+#: includes/I18n.php:132
+msgid "Settings saved"
+msgstr "Настройки сохранены"
+
+#: includes/I18n.php:131
+msgid "Select a default startup folder:"
+msgstr "Выберите папку запуска по умолчанию:"
+
+#: includes/I18n.php:128
+msgid "Can not active your License, please try again."
+msgstr "Не удалось активировать вашу лицензию, пожалуйста, попробуйте еще раз."
+
+#: includes/I18n.php:127
+msgid "Please enter your Personal Access Token or get one."
+msgstr "Введите свой личный токен доступа или получите его."
+
+#: includes/I18n.php:126
+msgid "Please enter your Purchase Code."
+msgstr "Введите код покупки."
+
+#: includes/Recommended/views/content.php:149
+msgid "Activate"
+msgstr "Активировать"
+
+#: includes/Support/ACF/acf-field-filebird-v4.php:20
+#: includes/Support/ACF/acf-field-filebird-v5.php:19
+msgid "FileBird Folder"
+msgstr "Папка FileBird"
+
+#: includes/Controller/Api.php:184
+msgid "Required fields are missing."
+msgstr "Требуемые поля отсутствуют."
+
+#: includes/I18n.php:125
+msgid "Import failed. Please try again or <a href=\"https://ninjateam.org/support\" target=\"_blank\">contact our support</a>."
+msgstr "Импорт не удалось. Пожалуйста, попробуйте еще раз или <a href=\"https://ninjateam.org/support\" target=\"_blank\">свяжитесь с нашей поддержкой</a>."
+
+#: views/pages/settings/tab-tools.php:22
+msgid "By running this action, all folders created in version 3.9 & earlier installs will be imported."
+msgstr "При запуске этого действия все папки, созданные в версии 3.9 и более ранних установках, будут импортированы."
+
+#: includes/I18n.php:121
+msgid "Go To Media"
+msgstr "Перейти к медиафайлам"
+
+#: includes/I18n.php:67
+msgid "Are you sure you want to delete this folder? Those files will be moved to <strong>Uncategorized</strong> folder."
+msgstr "Вы уверены, что хотите удалить эту папку? Эти файлы будут перемещены в папку <strong>без категории</strong>."
+
+#: includes/I18n.php:58
+msgid "You are editing another folder! Please complete the task first!"
+msgstr "Вы редактируете другую папку! Сначала выполните задачу!"
+
+#: includes/Classes/Convert.php:407
+msgid "Successfully cleared."
+msgstr "Успешно очищено."
+
+#: includes/Classes/Convert.php:388
+msgid "Successfully wiped."
+msgstr "Успешно стерто."
+
+#: includes/Controller/Folder.php:584
+msgid "Folder tree has been updated."
+msgstr "Обновлено дерево папок."
+
+#: includes/Controller/Folder.php:293
+msgid "Your request can't be processed."
+msgstr "Ваш запрос не может быть обработан."
+
+#: views/notices/html-notice-update-database.php:24
+msgid "You are using the new FileBird 4. Please update database to view your folders correctly."
+msgstr "Вы используете новую версию FileBird 4. Пожалуйста, обновите базу данных, чтобы ваши папки отображались корректно."
+
+#: includes/Controller/Folder.php:472
+msgid "Please choose folder"
+msgstr "Выберите папку"
+
+#: includes/I18n.php:124
+msgid "Import now"
+msgstr "Импортировать сейчас"
+
+#: includes/I18n.php:123
+msgid "You're using the new FileBird 4. Please import database to view your folders correctly."
+msgstr "Вы используете новую версию FileBird 4. Импортируйте базу данных для корректного просмотра папок."
+
+#: includes/I18n.php:122 views/notices/html-notice-update-database.php:20
+msgid "FileBird 4 Update Required"
+msgstr "Требуется обновление FileBird 4"
+
+#: views/notices/html-notice-update-database.php:30
+#: views/pages/settings/tab-tools.php:20
+msgid "Update now"
+msgstr "Обновить сейчас"
+
+#: includes/I18n.php:120
+msgid "Congratulations. Successfully imported!"
+msgstr "Поздравляем. Успешно импортировано!"
+
+#: includes/I18n.php:119
+msgid "Success."
+msgstr "Успешно."
+
+#: includes/I18n.php:84
+msgid "Skip & Deactivate"
+msgstr "Пропустить и деактивировать"
+
+#: includes/Controller/Folder.php:848 assets/dist/js/app.js:1
+msgid "folders"
+msgstr "папки"
+
+#: views/particle/folder_dropdown.php:2
+msgid "Choose folder: "
+msgstr "Выбрать папку: "
+
+#: views/pages/settings/tab-tools.php:37 views/pages/settings/tab-tools.php:53
+msgid "Generate"
+msgstr "Генерировать"
+
+#: views/pages/settings/tab-import.php:78
+msgid "WP Real Media Library by devowl.io GmbH"
+msgstr "WP Real Media Library от devowl.io GmbH"
+
+#: views/pages/settings/tab-import.php:56
+msgid "WP Media folder by Joomunited"
+msgstr "Папка библиотеки файлов WordPress от Joomunited"
+
+#: views/pages/settings/tab-import.php:12
+msgid "Enhanced Media Library plugin by wpUXsolutions"
+msgstr "Улучшенный плагин медиа-библиотеки по wpUXsolutions"
+
+#: views/pages/settings/tab-tools.php:75
+msgid "Clear"
+msgstr "Очистить"
+
+#: views/pages/settings/tab-tools.php:78
+msgid "This action will delete all FileBird data, FileBird settings and bring you back to WordPress default media library."
+msgstr "Это действие удалит все данные FileBird, настройки FileBird и вернут вас в библиотеку файлов WordPress по умолчанию."
+
+#: views/pages/settings/tab-tools.php:71
+msgid "Clear all data"
+msgstr "Очистить все данные"
+
+#: views/pages/settings/tab-tools.php:16
+msgid "Import from old version"
+msgstr "Импорт из старой версии"
+
+#: includes/I18n.php:117
+msgid "Including Divi, Fusion, Thrive Architect, WPBakery..."
+msgstr "В том числе Divi, Fusion, Thrive Architect, WPBakery..."
+
+#: includes/I18n.php:104
+msgid ""
+"<p>FileBird Lite version supports up to 10 folders.<br>Please upgrade to have unlimited folders and other premium features!</p>\n"
+"        <ul class=\"fbv-in_feature\">\n"
+"          <li>Unlimited Folders</li>\n"
+"          <li>Sort Files / Folders</li>\n"
+"          <li>Compatible with Premium Page Builders <span id=\"fbv-pagebuilder\" class=\"njn-i\"><svg viewBox=\"0 0 192 512\"><path fill=\"currentColor\" d=\"M20 424.229h20V279.771H20c-11.046 0-20-8.954-20-20V212c0-11.046 8.954-20 20-20h112c11.046 0 20 8.954 20 20v212.229h20c11.046 0 20 8.954 20 20V492c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20v-47.771c0-11.046 8.954-20 20-20zM96 0C56.235 0 24 32.235 24 72s32.235 72 72 72 72-32.235 72-72S135.764 0 96 0z\"></path></svg></span></li>\n"
+"          <li>Get Fast Updates</li>\n"
+"          <li>Premium Technical Support</li>\n"
+"          <li>One-time Payment</li>\n"
+"          <li>30-day Refund Guarantee</li>\n"
+"        </ul>"
+msgstr ""
+"<p>Версия FileBird Lite поддерживает до 10 папок.<br>Пожалуйста, обновление иметь неограниченные папки и другие премиум-функции!</p>\n"
+"        <ul class=\"fbv-in_feature\">\n"
+"          <li>Неограниченные папки</li>\n"
+"          <li>Сортировать файлы / Папки</li>\n"
+"          <li>Совместим с Premium Page Builders <span id=\"fbv-pagebuilder\" class=\"njn-i\"><svg viewBox=\"0 0 192 512\"><path fill=\"currentColor\" d=\"M20 424.229h20V279.771H20c-11.046 0-20-8.954-20-20V212c0-11.046 8.954-20 20-20h112c11.046 0 20 8.954 20 20v212.229h20c11.046 0 20 8.954 20 20V492c0 11.046-8.954 20-20 20H20c-11.046 0-20-8.954-20-20v-47.771c0-11.046 8.954-20 20-20zM96 0C56.235 0 24 32.235 24 72s32.235 72 72 72 72-32.235 72-72S135.764 0 96 0z\"></path></svg></span></li>\n"
+"          <li>Получить быстрые обновления</li>\n"
+"          <li>Премиум Техническая поддержка</li>\n"
+"          <li>Единовременная выплата</li>\n"
+"          <li>30-дневная гарантия возврата</li>\n"
+"        </ul>"
+
+#: includes/I18n.php:102
+msgid "Sorry to see you walk away, please share why you want to deactivate FileBird?"
+msgstr "Жаль, что вы уходите, пожалуйста, поделитесь, почему вы хотите деактивировать FileBird?"
+
+#: includes/I18n.php:101
+msgid "Want a better FileBird?"
+msgstr "Хотите улучшить FileBird?"
+
+#: includes/I18n.php:100
+msgid "Please share your thoughts..."
+msgstr "Пожалуйста, поделитесь своими мыслями ..."
+
+#: includes/I18n.php:99
+msgid "Please <a target=\"_blank\" href=\"https://ninjateam.org/support/\">ask for support here</a>, we will fix it for you."
+msgstr "<a target=\"_blank\" href=\"https://ninjateam.org/support/\">Пожалуйста, попросите поддержки здесь,</a>мы исправим это для вас."
+
+#: includes/I18n.php:96
+msgid "Which features please?"
+msgstr "Какие особенности?"
+
+#: includes/I18n.php:93
+msgid "This is just temporary, I will use it again."
+msgstr "Это временно, я буду использовать его снова."
+
+#: includes/I18n.php:91
+msgid "Found another plugin that works better."
+msgstr "Найден другой плагин, который работает лучше."
+
+#: includes/I18n.php:90
+msgid "Not work with my theme or other plugins."
+msgstr "Не работайте с моей темой или другими плагинами."
+
+#: includes/I18n.php:89
+msgid "It doesn't have the features I'm looking for."
+msgstr "Он не имеет функций, которые я ищу."
+
+#: includes/I18n.php:86
+msgid "Thank you so much!"
+msgstr "Большое спасибо!"
+
+#: includes/I18n.php:85
+msgid "Deactivate"
+msgstr "Деактивировать"
+
+#: includes/I18n.php:83
+msgid "Author Descending"
+msgstr "Автор по убыванию"
+
+#: includes/I18n.php:82
+msgid "Author Ascending"
+msgstr "Автор по возрастанию"
+
+#: includes/I18n.php:80
+msgid "By Author"
+msgstr "По автору"
+
+#: includes/I18n.php:79
+msgid "Modified Descending"
+msgstr "По убыванию изменения"
+
+#: includes/I18n.php:78
+msgid "Modified Ascending"
+msgstr "По возрастанию изменения"
+
+#: includes/I18n.php:77
+msgid "By Modified"
+msgstr "По изменению"
+
+#: includes/I18n.php:76
+msgid "Date Descending"
+msgstr "Дата по убыванию"
+
+#: includes/I18n.php:75
+msgid "Date Ascending"
+msgstr "Дата по возрастанию"
+
+#: includes/I18n.php:74
+msgid "By Date"
+msgstr "По дате"
+
+#: includes/I18n.php:73
+msgid "Name Descending"
+msgstr "По убыванию имени"
+
+#: includes/I18n.php:72
+msgid "Name Ascending"
+msgstr "По возрастанию имени"
+
+#: includes/I18n.php:71
+msgid "By Name"
+msgstr "По имени"
+
+#: includes/I18n.php:70
+msgid "Reset"
+msgstr "Сброс"
+
+#: includes/I18n.php:69
+msgid "Sort Descending"
+msgstr "Сортировать по убыванию"
+
+#: includes/I18n.php:68
+msgid "Sort Ascending"
+msgstr "Сортировать по возрастанию"
+
+#: includes/I18n.php:62
+msgid "Bulk Select"
+msgstr "Массовый выбор"
+
+#: includes/I18n.php:61
+msgid "Sort Files"
+msgstr "Сортировать файлы"
+
+#: includes/I18n.php:60
+msgid "Delete Folder"
+msgstr "Удалить папку"
+
+#: includes/I18n.php:59
+msgid "Sort Folders"
+msgstr "Сортировать папки"
+
+#: includes/I18n.php:57
+msgid "Those files will be moved to <strong>Uncategorized</strong> folder."
+msgstr "Эти файлы будут перемещены в папку <strong>Без категории</strong>."
+
+#: includes/I18n.php:55
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
+#: includes/I18n.php:54
+msgid "Enter folder name..."
+msgstr "Введите имя папки..."
+
+#: includes/I18n.php:52
+msgid "Folder name..."
+msgstr "Имя папки..."
+
+#: includes/I18n.php:50
+msgid "Save"
+msgstr "Сохранить"
+
+#: includes/I18n.php:49
+msgid "Can't delete!"
+msgstr "Невозможно удалить!"
+
+#: includes/I18n.php:48
+msgid "Successfully deleted!"
+msgstr "Успешно удалено!"
+
+#: includes/I18n.php:46
+msgid "Successfully moved"
+msgstr "Успешно перемещено"
+
+#: includes/I18n.php:44
+msgid "Loading"
+msgstr "Загрузка"
+
+#: includes/I18n.php:42
+msgid "Paste"
+msgstr "Вставить"
+
+#: includes/I18n.php:41
+msgid "Cut"
+msgstr "Вырезать"
+
+#: includes/I18n.php:39
+msgid "Ok"
+msgstr "Ок"
+
+#: includes/Page/Settings.php:98
+msgid "Documentation"
+msgstr "Документация"
+
+#: includes/Classes/Convert.php:413 includes/I18n.php:156
+msgid "Please try again."
+msgstr "Пожалуйста, попробуйте еще раз."
+
+#: includes/Classes/Convert.php:371
+msgid "validation failed"
+msgstr "проверка не пройдена"
+
+#: includes/Classes/Convert.php:369
+msgid "success"
+msgstr "успешно"
+
+#: includes/Classes/Convert.php:111 includes/Classes/Convert.php:295
+msgid "We found you have %1$s categories you created from <strong>%2$s</strong> plugin. Would you like to import it to <strong>FileBird</strong>?"
+msgstr "Мы обнаружили, что у вас есть категории %1$s, которые вы создали с помощью плагина <strong>%2$s</strong>. Хотите импортировать его в <strong>FileBird</strong>?"
+
+#: includes/Controller/Api.php:107
+msgid "Invalid action"
+msgstr "Неверное действие"
+
+#: includes/Controller/Folder.php:555
+msgid "Can't delete folder, please try again later"
+msgstr "Не удается удалить папку, попробуйте еще раз позже"
+
+#: includes/Controller/Api.php:205 includes/Controller/Folder.php:500
+#: includes/Controller/Folder.php:571 includes/Controller/Folder.php:590
+msgid "Validation failed"
+msgstr "Проверка не пройдена"
+
+#: includes/Controller/Folder.php:340 includes/Model/Folder.php:34
+msgid "All Folders"
+msgstr "Все папки"
+
+#. Plugin URI of the plugin
+msgid "https://ninjateam.org/wordpress-media-library-folders/"
+msgstr "https://ninjateam.org/wordpress-media-library-folders/"
+
+#: includes/I18n.php:98
+msgid "Please read FileBird documentation <a target=\"_blank\" href=\"https://ninjateam.gitbook.io/filebird/\">here</a> or <a target=\"_blank\" href=\"https://ninjateam.org/support/\">chat with us</a> if you need help"
+msgstr "Прочитайте документацию FileBird <a target=\"_blank\" href=\"https://ninjateam.gitbook.io/filebird/\">здесь</a> или <a target=\"_blank\" href=\"https://ninjateam.org/support/\">общайтесь с нами,</a> если вам нужна помощь"
+
+#: includes/Classes/Convert.php:511 includes/Classes/Convert.php:520
+#: includes/Classes/Convert.php:529 includes/Classes/Convert.php:538
+#: includes/Classes/Convert.php:547 includes/Classes/Convert.php:556
+#: includes/Classes/Convert.php:565
+msgid "Already Updated"
+msgstr "Уже обновлено"
+
+#: includes/Classes/Convert.php:350
+msgid "Success"
+msgstr "Успешно"
+
+#: includes/Classes/Convert.php:498 includes/Controller/Folder.php:763
+msgid "Congratulations! We imported successfully %d folders into <strong>FileBird.</strong>"
+msgstr "Поздравляем! Мы успешно импортировали %d папок в <strong>FileBird.</strong>"
+
+#: includes/Classes/Convert.php:310 includes/Classes/Review.php:72
+#: includes/I18n.php:151
+msgid "No, thanks"
+msgstr "Нет, спасибо"
+
+#: includes/Classes/Convert.php:292
+msgid "Import categories to FileBird"
+msgstr "Импорт категорий в FileBird"
+
+#: includes/Classes/Review.php:71
+msgid "Later"
+msgstr "Позже"
+
+#: includes/Classes/Review.php:70
+msgid "Rate now"
+msgstr "Оценить сейчас"
+
+#: includes/Classes/Review.php:66
+msgid "We will be forever grateful. Thank you in advance ;)"
+msgstr "Мы будем вечно благодарны. Заранее спасибо ;)"
+
+#: includes/Classes/Review.php:63
+msgid "Thank you for choosing FileBird. We hope you love it. Could you take a couple of seconds posting a nice review to share your happy experience?"
+msgstr "Благодарим Вас за выбор FileBird. Мы надеемся, что вы любите его. Не могли бы вы занять пару секунд размещения хороший обзор поделиться своим счастливым опытом?"
+
+#: includes/Classes/Review.php:61
+msgid "Give FileBird a review"
+msgstr "Оставить отзыв о FileBird"
+
+#: views/pages/settings/tab-import.php:34
+msgid "WordPress Media Library Folders by Max Foundry"
+msgstr "Папки библиотеки файлов WordPress от Max Foundry"
+
+#: includes/Classes/Convert.php:309 views/pages/settings/tab-import.php:19
+#: views/pages/settings/tab-import.php:41
+#: views/pages/settings/tab-import.php:63
+#: views/pages/settings/tab-import.php:85
+#: views/pages/settings/tab-import.php:107
+#: views/pages/settings/tab-import.php:129
+#: views/pages/settings/tab-import.php:151
+#: views/pages/settings/tab-import.php:206
+msgid "Import Now"
+msgstr "Импортировать сейчас"
+
+#: views/pages/settings/tab-import.php:5
+msgid "Import categories/folders from other plugins. We import virtual folders, your website will be safe, don't worry ;)"
+msgstr "Импортируйте категории/папки из других плагинов. Мы импортируем виртуальные папки, ваш сайт будет в безопасности, не волнуйтесь ;)"
+
+#: views/pages/settings/tab-settings.php:9
+msgid "Each user has his own folders?"
+msgstr "Каждый пользователь имеет свои собственные папки?"
+
+#: views/pages/settings/tab-import.php:3
+msgid "Import"
+msgstr "Импорт"
+
+#: includes/I18n.php:129 views/pages/html-settings.php:26
+msgid "Settings"
+msgstr "Настройки"
+
+#: includes/I18n.php:130 views/pages/html-settings.php:60
+msgid "FileBird Settings"
+msgstr "Настройки FileBird"
+
+#: includes/I18n.php:138 includes/Page/Settings.php:40
+#: includes/Page/Settings.php:112 views/pages/html-settings.php:19
+msgid "Go Pro"
+msgstr "Получить Про"
+
+#: includes/I18n.php:94
+msgid "Other"
+msgstr "Другое"
+
+#: includes/I18n.php:88
+msgid "I've purchased FileBird Pro."
+msgstr "Я приобрел FileBird Pro"
+
+#: includes/I18n.php:92
+msgid "Don't know how to use it."
+msgstr "Не знаю, как им пользоваться."
+
+#: includes/I18n.php:97
+msgid "Please tell us which one"
+msgstr "Пожалуйста, скажите нам, какой"
+
+#: views/notices/html-notice-first-folder.php:13
+msgid "Get Started"
+msgstr "Для начала"
+
+#: views/notices/html-notice-first-folder.php:11
+msgid "Create your first folder for media library now."
+msgstr "Создайте свою первую папку для библиотеки файлов сейчас."
+
+#: includes/YC.php:66
+msgid "No, Thanks"
+msgstr "Нет, спасибо"
+
+#: includes/I18n.php:118
+msgid "Upgrade to FileBird Pro now"
+msgstr "Обновить до Pro версии сейчас"
+
+#: includes/I18n.php:51 blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Folder"
+msgstr "Папка"
+
+#. Description of the plugin
+msgid "Organize thousands of WordPress media files into folders/ categories at ease."
+msgstr "Организуйте тысячи медиафайлов WordPress в папки/категории."
+
+#. Author URI of the plugin
+msgid "https://ninjateam.org"
+msgstr "https://ninjateam.org"
+
+#. Author of the plugin
+msgid "Ninja Team"
+msgstr "Ninja Team"
+
+#. Plugin Name of the plugin
+msgid "FileBird Lite"
+msgstr "FileBird Lite"
+
+#: includes/I18n.php:40
+msgid "Cancel"
+msgstr "Отмена"
+
+#: includes/I18n.php:146
+msgid "Move"
+msgstr "Упорядочить"
+
+#: includes/I18n.php:56
+msgid "Are you sure?"
+msgstr "Вы уверены?"
+
+#: includes/I18n.php:103
+msgid "Folder Limit Reached"
+msgstr "Достигнут предел количества папок"
+
+#: includes/Recommended/Recommended.php:328
+#: includes/Recommended/Recommended.php:372
+#: includes/Recommended/Recommended.php:482
+msgid "Error."
+msgstr "Ошибка."
+
+#: includes/Controller/Folder.php:344 includes/Controller/Folder.php:622
+#: includes/I18n.php:64 includes/Model/Folder.php:38 assets/dist/js/app.js:1
+msgid "Uncategorized"
+msgstr "Без категории"
+
+#: includes/I18n.php:63
+msgid "All Files"
+msgstr "Все файлы"
+
+#: includes/I18n.php:37
+msgid "Delete"
+msgstr "Удалить"
+
+#: includes/I18n.php:66
+msgid "Rename"
+msgstr "Переименовать"
+
+#: includes/I18n.php:36
+msgid "New Folder"
+msgstr "Новая папка"
+
+#: includes/I18n.php:38 includes/I18n.php:53
+msgid "Folders"
+msgstr "Папки"
+
+#: includes/I18n.php:148
+msgid "items"
+msgstr "элементы"
+
+#: includes/I18n.php:147
+msgid "item"
+msgstr "элемент"
+
+#: includes/I18n.php:35
+msgid "No media files found."
+msgstr "Медиафайлов не найдено."

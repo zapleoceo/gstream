@@ -1,0 +1,576 @@
+# Translation of Plugins - Plugin Nova Poshta for WooCommerce (WordPress) - Stable (latest release) in Russian
+# This file is distributed under the same license as the Plugins - Plugin Nova Poshta for WooCommerce (WordPress) - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2023-07-19 18:09:48+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.0.0-alpha.4\n"
+"Language: ru\n"
+"Project-Id-Version: Plugins - Plugin Nova Poshta for WooCommerce (WordPress) - Stable (latest release)\n"
+
+#: src/Education/WooCommerce/Shipping/Methods/Courier/Courier.php:80
+msgid "Fill the delivery address"
+msgstr "Заполните адрес доставки"
+
+#: src/WooCommerce/Shipping/Methods/NovaPoshta/NovaPoshta.php:82
+msgid "Allow your customers to deliver your products right to the warehouse near their homes. Your customer needs to choose a city and warehouse from the smart select fields. Also, you can gift customers free delivery if their cart more than any exact price."
+msgstr "Позволяет вашим клиентам доставлять товары прямо к двери. Вашему клиенту нужно выбрать город и заполнить адрес. Также вы можете подарить клиентам бесплатную доставка если их корзина больше, чем какая-то цена."
+
+#: src/WooCommerce/InternetDocument.php:81
+msgid "The invoice for this order was created earlier."
+msgstr "ТТН для заказа уже создан"
+
+#: src/Education/WooCommerce/Shipping/Methods/Courier/Courier.php:124
+#: src/WooCommerce/Shipping/Methods/NovaPoshta/NovaPoshta.php:134
+msgid "If the cart totals more than this number, then shipping is free."
+msgstr "Бесплатная доставка, если сумма корзины больше, чем это число."
+
+#: src/Education/WooCommerce/Shipping/Methods/Courier/Courier.php:123
+#: src/WooCommerce/Shipping/Methods/NovaPoshta/NovaPoshta.php:133
+msgid "Minimum cart total for free shipping"
+msgstr "Минимальная сумма корзины для бесплатной доставки"
+
+#: src/Education/WooCommerce/Shipping/Methods/Courier/Courier.php:117
+#: src/WooCommerce/Shipping/Methods/NovaPoshta/NovaPoshta.php:127
+msgid "Enable free shipping"
+msgstr "Включить бесплатную доставку"
+
+#: src/Education/WooCommerce/Shipping/Methods/Courier/Courier.php:99
+msgid "Nova Poshta Courier Delivery"
+msgstr "Доставка курьером Новой Почты"
+
+#: src/Education/WooCommerce/Shipping/Methods/Courier/Courier.php:79
+msgid "Allow your customers to deliver your products right to their door. Your customer needs to choose a city and fill in the address. Also, you can gift customers free delivery if their cart more than any exact price."
+msgstr "Позволяет вашим клиентам доставлять товары прямо к двери. Ваш клиенту нужно выбрать город и заполнить адрес. Так же вы можете подарить клиентам бесплатную доставка если их корзина больше, чем какая-то цена."
+
+#: src/Education/WooCommerce/Shipping/Methods/Courier/Courier.php:78
+msgid "Nova Poshta Courier Delivery (for Pro)"
+msgstr "Доставка Курьером Новой Почты (для Про)"
+
+#: src/Education/SettingsPage.php:60
+msgid "Shipping Cost on the Checkout Page 2"
+msgstr "Стоимость доставки на странице оформления заказа 2"
+
+#: src/Education/SettingsPage.php:59
+msgid "Shipping Cost on the Checkout Page 1"
+msgstr "Стоимость доставки на странице оформления заказа 1"
+
+#: src/Education/SettingsPage.php:58
+msgid "Shipping Cost on the Product Page"
+msgstr "Стоимость доставки на странице товара"
+
+#: src/Education/SettingsPage.php:57
+msgid "Shipping Cost on the Category Page"
+msgstr "Стоимость доставки на странице категории товара"
+
+#: src/Education/SettingsPage.php:56
+msgid "Shipping Cost on the Settings Page"
+msgstr "Стоимость доставки на странице настроек"
+
+#: src/Education/SettingsPage.php:42
+msgid "Shipping Cost"
+msgstr "Стоимость доставки"
+
+#. translators: %s - discount in percent
+#: src/Notice/Advertisement.php:88
+msgid "To unlock more features, consider upgrading to Pro. As a valued user you receive %s off, automatically applied at checkout!"
+msgstr "Чтобы разблокировать больше функций, рассмотрите возможность обновления до версии Pro. Как ценный пользователь, вы получаете скидку %s, которая автоматически применяется при оформлении заказа!"
+
+#: src/Admin/SettingsPage.php:129
+msgid "Sender Information"
+msgstr "Информация об отправителе"
+
+#: src/Admin/SettingsPage.php:128
+msgid "General Settings"
+msgstr "Основные настройки"
+
+#: src/Api/Http/Response.php:100
+msgid "Something went wrong"
+msgstr "Что-то пошло не так"
+
+#. translators: %s - link to the settings page
+#: src/Api/Api.php:427
+msgid "Failed to create recipient, check order details. Required fields are First name, Last name, Phone, City ID, and Warehouse or Address."
+msgstr "Не удалось создать получателя, проверьте детали заказа. Обязательные поля: Имя, Фамилия, Телефон, ID города и Склад или Адрес."
+
+#. translators: %s - link to the settings page
+#: src/Api/Api.php:346 src/Api/Api.php:363
+msgid "Failed to create a sender, check the data, on <a href=\"%s\">the settings page</a>"
+msgstr "Не удалось создать отправителя, проверьте данные на <a href=\"%s\">странице настроек</a>"
+
+#. translators: %s - link to the settings page
+#: src/Api/Api.php:315
+msgid "Failed to create a an invoice."
+msgstr "Не удалось создать электронную накладную (ТТН)"
+
+#. translators: %s - link to the settings page
+#: src/Api/Api.php:275
+msgid "Failed to create a sender, fill the API key and sender's data, on <a href=\"%s\">the settings page</a>"
+msgstr "Не удалось создать отправителя, заполните API ключ и данные отправителя на <a href=\"%s\">странице настроек</a>"
+
+#. translators: %s - address
+#: src/Api/Exception/InvalidFieldAddress.php:34
+msgid "%s is invalid address format. Only Russian, Ukrainian letters, numbers, comma, space, and hyphen, are allowed. Also, the maximum length is 36 characters."
+msgstr "%s - недопустимый формат адреса. Разрешены только русские, украинские буквы, цифры, запятая, пробел и дефис. Кроме того, максимальная длина составляет 36 символов."
+
+#: src/Api/Exception/AllowOnlyOneRecipientAddress.php:30
+msgid "Allow only one recipient address"
+msgstr "Разрешить только один адрес получателя"
+
+#. translators: %1$s - phone number, %2$s, %3$s, %4$s - examples
+#: src/Api/Exception/InvalidPhoneNumber.php:34
+msgid "%1$s is invalid phone number format. The following formats are accepted: %2$s, %3$s, %4$s"
+msgstr "%1$s - неверный формат номера телефона. Допустимы следующие форматы: %2$s, %3$s, %4$s"
+
+#. translators: %s - ID
+#: src/Api/Exception/InvalidId.php:34
+msgid "%s is invalid id format. Check if all fields are filled in."
+msgstr "%s - недопустимый формат идентификатора. Проверьте, все ли поля заполнены."
+
+#. translators: %s - field name
+#: src/Api/Exception/InvalidFieldName.php:34
+msgid "%s is invalid name format. Only Russian, Ukrainian letters are allowed. Also, the maximum length is 36 characters."
+msgstr "%s - недопустимый формат имени. Разрешены только русские, украинские буквы. Кроме того, максимальная длина составляет 36 символов."
+
+#: src/Api/Exception/AddRecipientAddress.php:30
+msgid "You need to add at least one recipient address"
+msgstr "Вам нужно добавить хотя бы один адрес получателя"
+
+#. translators: %s - description
+#: src/Api/Exception/InvalidFieldDescription.php:34
+msgid "%s is invalid description format. Only Russian, Ukrainian letters, numbers, comma, space, and hyphen, are allowed. Also, the maximum length is 36 characters."
+msgstr "%s - недопустимый формат описания. Разрешены только русские, украинские буквы, цифры, запятая, пробел и дефис. Кроме того, максимальная длина составляет 36 символов."
+
+#. translators: %s - link to the personal account.
+#: src/License/License.php:160
+msgid "Automatic update failed. Try again or download the plugin from <a href=\"%s\">your personal account.</a>"
+msgstr "Не удалось выполнить автоматическое обновление. Попробуйте еще раз или скачайте плагин из <a href=\"%s\">вашего личного аккаунта.</a>"
+
+#. translators: %s - link to the personal account
+#: src/License/License.php:115
+msgid "Failed to activate the plugin, try again or check your key in <a href=\"%s\" target=\"_blank\">your personal account</a>."
+msgstr "Не удалось активировать плагин, попробуйте еще раз или проверьте свой ключ в <a href=\"%s\" target=\"_blank\">личном аккаунте</a>."
+
+#: shipping-nova-poshta-for-woocommerce.php:65
+msgid "The Shipping for Nova Poshta plugin has been deactivated. Our plugin extends the WooCommerce plugin, but this plugin doesn't active."
+msgstr "Плагин «Доставка для Новой почты» отключен. Наш плагин расширяет плагин WooCommerce, но этот плагин не активен."
+
+#: shipping-nova-poshta-for-woocommerce.php:60
+msgid "The Shipping for Nova Poshta plugin has been deactivated. Your site is running an outdated version of PHP that is no longer supported and is not compatible with our plugin."
+msgstr "Плагин «Доставка для Новой почты» отключен. На вашем сайте установлена устаревшая версия PHP, которая больше не поддерживается и несовместима с нашим плагином."
+
+#: templates/admin/page-options/tab-sender.php:36
+msgid "Go to API key field"
+msgstr "Перейти к полю API ключа"
+
+#: templates/admin/page-options/tab-sender.php:28
+msgid "Firstly you need to fill in the API key for the Nova Poshta."
+msgstr "Для начала вам нужно заполнить ключ API для Новой почты."
+
+#: templates/admin/page-options/tab-general.php:51
+msgid "Under shipping method"
+msgstr "Под способом доставки"
+
+#: templates/admin/page-options/tab-general.php:50
+msgid "Inside billing fields"
+msgstr "Внутри полей биллинга"
+
+#: templates/admin/page-options/tab-general.php:48
+msgid "The place for fields on the checkout page"
+msgstr "Место для полей на странице оформления заказа"
+
+#. translators: 1: Link on Nova Poshta personal account
+#: templates/admin/page-options/tab-general.php:37
+msgid "If you do not have an API key, then you can get it in the <a href=\"%1$s\" target=\"_blank\">personal account of Nova Poshta</a>. Unfortunately, without the API key, the plugin will not work :(. Also read: <a href=\"%2$s\">How to get Nova Poshta API key and connect our plugin</a>."
+msgstr "Если у вас нет API-ключа, вы можете получить его в <a href=\"%1$s\" target=\"_blank\">личном кабинете Новой Почты</a>. К сожалению, без API ключа плагин работать не будет :(. Также читайте: <a href=\"%2$s\">Как получить API ключ для Новой Почты и подключить наш плагин</a>."
+
+#: src/Notice/Advertisement.php:91
+#: templates/admin/page-options/quick-references.php:116
+msgid "Upgrade"
+msgstr "Купить"
+
+#: templates/admin/page-options/quick-references.php:78
+msgid "Quick references"
+msgstr "Быстрые ссылки"
+
+#: templates/admin/page-options/quick-references.php:73
+msgid "Rate the plugin"
+msgstr "Оценить плагин"
+
+#: templates/admin/page-options/quick-references.php:71
+msgid "Do you like our product? Then give us 5 stars, we will be very grateful for that. If you think that we don't deserve 5 stars, we will gladly accept your rating and work on it."
+msgstr "Вам нравится наш товар? Тогда поставьте нам 5 звезд, мы будем очень благодарны за это. Если вы считаете, что мы не заслуживаем 5 звезд, мы с радостью примем вашу оценку и поработаем над ней."
+
+#: templates/admin/page-options/quick-references.php:70
+msgid "Rate our plugin"
+msgstr "Оценить наш плагин"
+
+#: templates/admin/page-options/quick-references.php:67
+msgid "Create a ticket"
+msgstr "Создать обращение"
+
+#: templates/admin/page-options/quick-references.php:65
+msgid "Do you have any questions or found any bugs or any ideas for new features? We will be happy to answer you. Let's make this product better together."
+msgstr "У вас есть какие-либо вопросы, есть ли какие-либо ошибки или есть идеи для новых функций? Будем рады Вам ответить. Давайте вместе сделаем этот продукт лучше."
+
+#: templates/admin/page-options/quick-references.php:64
+msgid "Support"
+msgstr "Служба поддержки"
+
+#: templates/admin/page-options/quick-references.php:60
+msgid "Visit page"
+msgstr "Посетить страницу"
+
+#: templates/admin/page-options/quick-references.php:58
+msgid "We've added a page where you can bulk manage orders that use our plugin. Create all day invoices in just a few clicks."
+msgstr "Мы добавили страницу, на которой вы можете управлять массовыми заказами с помощью нашего плагина. Создавайте счета за целый день всего за несколько кликов."
+
+#: templates/admin/page-options/quick-references.php:51
+msgid "You can gift your customers free delivery if they have bought more than some amount using our smart shipping methods."
+msgstr "Вы можете подарить своим клиентам бесплатную доставку, если они купили больше определенной суммы, используя наши умные методы доставки."
+
+#: templates/admin/page-options/quick-references.php:50
+msgid "Free delivery"
+msgstr "Бесплатная доставка"
+
+#: templates/admin/page-options/quick-references.php:46
+#: templates/admin/page-options/quick-references.php:53
+msgid "Proceed to setup"
+msgstr "Перейти к настройке"
+
+#: templates/admin/page-options/quick-references.php:44
+msgid "We spent a lot of time calculating the cost of the parcels. Filling in the dimensions and weight for all goods is inhuman labor, and that is why we have made formulas that describe the calculation of the cost. If you have the same type of products, you can fill in only 4 formulas, and that's it. And if you have many different products, you can fill in the same formulas for categories or products."
+msgstr "Мы потратили много времени на расчет стоимости посылки. Заполнение размеров и веса всех товаров - это нечеловеческий труд, поэтому мы составили формулы, описывающие расчет стоимости. Если у вас однотипные товары, вы можете заполнить всего 4 формулы. А если у вас много разных продуктов, вы можете заполнить одни и те же формулы для категорий или продуктов."
+
+#: templates/admin/page-options/quick-references.php:43
+msgid "Shipping cost"
+msgstr "Стоимость доставки"
+
+#: templates/admin/page-options/quick-references.php:39
+msgid "Add the COD delivery "
+msgstr "Добавить доставку наложенным платежом"
+
+#: templates/admin/page-options/quick-references.php:37
+msgid "Your customers can pay upon receipt of the goods. You can also specify the amount of the prepayment using formulas for calculation."
+msgstr "Ваши покупатели могут произвести оплату при получении товара. Вы также можете указать сумму предоплаты по формулам для расчета."
+
+#: templates/admin/page-options/quick-references.php:36
+msgid "Cash on delivery payment"
+msgstr "Наложенный платёж"
+
+#: templates/admin/page-options/quick-references.php:28
+msgid "Allow your customers to deliver your products right to their door. Your customer needs to choose a city and fill in the address. Also, you can gift customers free delivery depend on their total price in the cart."
+msgstr "Позволяет вашим клиентам доставлять товары прямо к двери. Вашему клиенту нужно выбрать город и заполнить адрес. Так же вы можете подарить клиентам бесплатную доставка в зависимости от общей цены корзины."
+
+#: templates/admin/page-options/quick-references.php:25
+msgid "Courier delivery by Nova Poshta"
+msgstr "Курьерская доставка Новой Почтой"
+
+#: templates/admin/page-options/quick-references.php:22
+#: templates/admin/page-options/quick-references.php:32
+msgid "Add the shipping method"
+msgstr "Добавить метод доставки"
+
+#: templates/admin/page-options/quick-references.php:19
+#: templates/admin/page-options/quick-references.php:29
+msgid "How to add a new shipping method?"
+msgstr "Как добавить новый способ доставки?"
+
+#: templates/admin/page-options/quick-references.php:18
+msgid "Delivery by Nova Poshta with the smart choice of the city and of the warehouse. These fields have quick and convenient search."
+msgstr "Доставка Новой Почтой с умным выбором города и склада. Эти поля имеют быстрый и удобный поиск."
+
+#: templates/admin/page-options/quick-references.php:15
+msgid "Delivery by Nova Poshta"
+msgstr "Доставка Новой Почтой"
+
+#. translators: %1$s - link to marketing site, %2$s - discount in percent
+#: templates/admin/page-options/license-form.php:67
+msgid "To unlock more features, consider <a href=\"%1$s\" target=\"_blank\">upgrading to Pro</a>. As a valued user you receive %2$s off, automatically applied at checkout!"
+msgstr "Чтобы разблокировать дополнительные функции, рассмотрите возможность <a href=\"%1$s\" target=\"_blank\">обновления до Pro</a>. Как ценный пользователь, вы получаете скидку %2$s, которая автоматически применяется при оформлении заказа!"
+
+#: templates/admin/page-options/license-form.php:40
+msgid "You're using Shipping Nova Poshta for WooCommerce - no license needed. Enjoy!"
+msgstr "Вы используете Shipping Nova Poshta для WooCommerce - лицензия не обязательная. Наслаждайтесь!"
+
+#: templates/admin/page-options/license-form.php:36
+msgid "License"
+msgstr "Лицензия"
+
+#: templates/admin/page-options/license-form.php:32
+msgid "Upgrade Plugin"
+msgstr "Улучшить Плагин"
+
+#: templates/admin/page-options/license-form.php:31
+msgid "Deactivate Key"
+msgstr "Деактивировать Ключ"
+
+#: templates/admin/page-options/license-form.php:30
+msgid "Become Pro"
+msgstr "Стать Про"
+
+#: templates/education/admin/manage-orders.php:20
+msgid "You can see all active orders and bulk create invoices for delivery."
+msgstr "Вы можете видеть все активные заказы и массово создавать счета для доставки."
+
+#: templates/education/admin/manage-orders.php:17
+msgid "View and manage all your orders related to the Nova Poshta Delivery"
+msgstr "Просмотр и управление всеми вашими заказами, связанными с доставкой Новой Почты"
+
+#: templates/education/admin/manage-orders.php:26
+#: templates/education/admin/page-options/tab-shipping-cost.php:63
+msgid "Upgrade Now"
+msgstr "Улучшить сейчас"
+
+#: templates/education/admin/page-options/tab-shipping-cost.php:35
+msgid "For example, you have two categories on your site with small and large goods, which have approximate dimensions. Specify formulas for their calculation and the calculation will become more accurate than ever."
+msgstr "Например, у вас есть две категории на вашем сайте с небольшими и крупными товарами, которые имеют приблизительные размеры. Укажите формулы для их расчета, и расчет станет точнее, чем когда-либо."
+
+#: templates/education/admin/page-options/tab-shipping-cost.php:32
+msgid "Do you have missing dimensions? Never mind, you can use the formula to calculate the cost on the settings page, category page, or product page."
+msgstr "У вас отсутствуют размеры? Не беда, вы можете использовать формулу для расчета стоимости на странице настроек, странице категории или странице продукта."
+
+#: templates/education/admin/page-options/tab-shipping-cost.php:29
+msgid "Do you want to make an accurate calculation of delivery? With the help of the \"shipping cost\" feature, the shipping cost will be automatically calculated according to the overall dimensions of the product."
+msgstr "Хотите точно рассчитать доставку? С помощью функции «Стоимость доставки» стоимость доставки будет автоматически рассчитана в соответствии с габаритными размерами товара."
+
+#. Author of the plugin
+msgid "WP Unit"
+msgstr "WP Unit"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "http://wp-unit.com/"
+msgstr "http://wp-unit.com/"
+
+#: src/Notice/Advertisement.php:80
+msgid "Report a bug"
+msgstr "Сообщить об ошибке"
+
+#: src/Notice/Advertisement.php:79
+msgid "If you found a bug or have an idea for a new feature tell us. Let's go make the plugin better."
+msgstr "Если вы обнаружили ошибку или у вас есть идея по поводу новой функции, сообщите нам. Давай сделаем плагин лучше."
+
+#: src/Notice/Advertisement.php:75
+msgid "Rate plugin"
+msgstr "Оценить плагин"
+
+#. translators: %s - stars icons
+#: src/Notice/Advertisement.php:66
+msgid "Hey, do you like our plugin? Please, could you rate it and set %s stars for us. We very care about your emotion and comfortability."
+msgstr "Привет, тебе нравится наш плагин? Пожалуйста, оцените его и поставьте нам %s звезд. Мы очень заботимся о ваших эмоциях и комфорте."
+
+#: src/Education/ManageOrders/ManageOrdersPage.php:72
+#: src/Education/ManageOrders/ManageOrdersPage.php:73
+#: templates/admin/page-options/quick-references.php:57
+msgid "Manage orders"
+msgstr "Управлять заказами"
+
+#. Description of the plugin
+msgid "Select a branch on the checkout page, the creation of electronic invoices, calculating shipping costs, COD payment, and much more ..."
+msgstr "Выбор отделения на странице оформления заказа, создание электронных накладных(ТТН), расчет стоимости, наложенный платеж и многое другое ..."
+
+#: src/WooCommerce/InternetDocument.php:107
+msgid "The order doesn't have a products"
+msgstr "В этом заказе отсутствуют товары."
+
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:128
+msgid "Instructions that will be added to the thank you page. You can use the shortcode [prepayment] to write the price of prepayment and [rest] shortcode to write the rest of the amount."
+msgstr "Инструкции которые будут добавлены на страницу благодарности. Вы можете использовать шорткод [prepayment]  чтобы вывести цену предоплаты и [rest] шорткод чтобы вывести остальную цену заказа."
+
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:126
+msgid "Instructions"
+msgstr "Инструкции"
+
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:121
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:129
+msgid "Pay [prepayment] prepayment and [rest] with cash upon delivery."
+msgstr "Оплатите предоплату в размере [prepaymnet] и [rest] при получении товара на почте."
+
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:120
+msgid "Description of the payment method that the customer will see on the checkout page. You can use the shortcode [prepayment] to write the price of prepayment and [rest] shortcode to write the rest of the amount."
+msgstr "Описание оплаты которое увидит пользователь на странице оформления заказа. Вы можете использовать шорткод [prepayment]  чтобы вывести цену предоплаты и [rest] шорткод чтобы вывести остальную цену заказа."
+
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:118
+msgid "Description"
+msgstr "Описание"
+
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:112
+msgid "Formula cost calculation. The numbers are indicated in current currency. You can use the [qty] shortcode to indicate the number of products. Leave a empty if you work without prepayment."
+msgstr "Формула расчета стоимости. Число показывающее текущую цену. Вы можете использовать шорткод [qty] чтобы показать кол-во товаров. Оставьте пустым если вы работаете без предоплаты."
+
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:110
+msgid "Prepayment"
+msgstr "Предоплата"
+
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:105
+msgid "Cash on delivery"
+msgstr "Оплата при доставке"
+
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:104
+msgid "Payment method description that the customer will see on your checkout."
+msgstr "Описание способа оплаты, которое клиент будет видеть на странице оформления заказа."
+
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:102
+msgid "Title"
+msgstr "Заголовок"
+
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:95
+msgid "Enable cash on delivery"
+msgstr "Включить доставку при получении"
+
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:94
+msgid "Enable/Disable"
+msgstr "Включить/Выключить"
+
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:73
+msgid "Have your customers pay with cash (or by other means) upon delivery."
+msgstr "Сделайте так, чтобы ваши клиенты оплачивали наличными (или другими способами) при доставке."
+
+#: src/Education/WooCommerce/Payments/Gateways/COD.php:69
+msgid "Nova Poshta cash on delivery"
+msgstr "Наложенный платеж от Новой Почты"
+
+#: src/WooCommerce/InternetDocument.php:133
+msgid "The invoice wasn't created because:"
+msgstr "Накладная не была создана потому что:"
+
+#: src/WooCommerce/InternetDocument.php:144
+msgid "The invoice was successfully created"
+msgstr "Накладная успешно создана"
+
+#. translators: 1: link on WooCommerce settings
+#: src/WooCommerce/Shipping/Shipping.php:65
+msgid "You must add the \"Nova Poshta\" shipping method <a href=\"%s\">in the WooCommerce settings</a>"
+msgstr "Вы должны добавить метод доставки \"Новая Почта\" <a href=\"%s\">на странице настроек WooCommerce</a>"
+
+#: templates/education/admin/metaboxes/product.php:70
+msgid "Formula for height calculate"
+msgstr "Формула для расчета высоты"
+
+#: templates/education/admin/metaboxes/product.php:54
+msgid "Formula for length calculate"
+msgstr "Формула для расчета длины"
+
+#: templates/education/admin/metaboxes/product.php:38
+msgid "Formula for width calculate"
+msgstr "Формула для расчета ширины"
+
+#: templates/education/admin/metaboxes/product.php:22
+msgid "Formula for weight calculate"
+msgstr "Формула для расчета веса"
+
+#: templates/education/admin/metaboxes/product-cat-edit.php:93
+msgid "Height formula"
+msgstr "Формула для расчета высоты"
+
+#: templates/education/admin/metaboxes/product-cat-edit.php:69
+msgid "Length formula"
+msgstr "Формула для расчета длины"
+
+#: templates/education/admin/metaboxes/product-cat-edit.php:45
+msgid "Width formula"
+msgstr "Формула для расчета ширины"
+
+#: templates/education/admin/metaboxes/product-cat-edit.php:21
+msgid "Weight formula"
+msgstr "Формула для расчета веса"
+
+#: templates/education/admin/metaboxes/product.php:42
+#: templates/education/admin/metaboxes/product.php:58
+#: templates/education/admin/metaboxes/product.php:74
+msgid "Formula cost calculation. The numbers are indicated in meters. You can use the [qty] shortcode to indicate the number of products."
+msgstr "Форума для расчета. Числа указывать в метрах. Вы можете использовать шорткод  [qty] для указания количества товаров."
+
+#: templates/education/admin/metaboxes/product-cat-edit.php:37
+#: templates/education/admin/metaboxes/product-cat-edit.php:61
+#: templates/education/admin/metaboxes/product-cat-edit.php:85
+#: templates/education/admin/metaboxes/product-cat-edit.php:109
+#: templates/education/admin/metaboxes/product.php:26
+msgid "Formula cost calculation. The numbers are indicated in kilograms. You can use the [qty] shortcode to indicate the number of products."
+msgstr "Форума для расчета. Числа указывать в килограммах. Вы можете использовать шорткод  [qty] для указания количества товаров."
+
+#: templates/admin/page-options/tab-sender.php:93
+#: templates/admin/page-options/tab-sender.php:98
+msgid "Sender Warehouse"
+msgstr "Склад отправителя"
+
+#: templates/admin/page-options/tab-sender.php:79
+#: templates/admin/page-options/tab-sender.php:84
+msgid "Sender City"
+msgstr "Город отправителя"
+
+#: templates/admin/page-options/tab-sender.php:72
+msgid "A few words about what you send. For example: toys, shoes, household appliances, etc."
+msgstr "Несколько слов о том, что вы отправляете. Для примера: игрушки, обувь, бытовая техника и т.д."
+
+#: templates/admin/page-options/tab-sender.php:52
+msgid "Sender Phone"
+msgstr "Телефон отправителя"
+
+#: src/WooCommerce/InternetDocument.php:147
+msgid "Created an Internet document for Nova Poshta"
+msgstr "Создана накладная для Новой Почты"
+
+#: templates/admin/page-options/tab-sender.php:63
+msgid "Description of your products"
+msgstr "Описание товара"
+
+#: src/WooCommerce/Order.php:250
+msgid "Create Nova Poshta Internet Document"
+msgstr "Создание накладной для Новой Почты"
+
+#: src/WooCommerce/Order.php:158
+msgid "Invoice"
+msgstr "Накладная"
+
+#: src/Education/WooCommerce/Shipping/Methods/Courier/Courier.php:111
+#: src/WooCommerce/Shipping/Methods/NovaPoshta/NovaPoshta.php:113
+msgid "Method header"
+msgstr "Заголовок метода"
+
+#: src/Education/WooCommerce/Shipping/Methods/Courier/Courier.php:113
+#: src/WooCommerce/Shipping/Methods/NovaPoshta/NovaPoshta.php:81
+#: src/WooCommerce/Shipping/Methods/NovaPoshta/NovaPoshta.php:115
+msgid "Nova Poshta delivery"
+msgstr "Доставка Новой почты"
+
+#. translators: 1: link on page option
+#: src/Admin/SettingsPage.php:231
+msgid "For the plugin to work, you must enter the API key on the <a href=\"%s\">plugin settings page</a>"
+msgstr "Для работы плагина, вам необходимо ввести API ключ на <a href=\"%s\">странице настроек плагина</a>"
+
+#: src/Admin/SettingsPage.php:245
+msgid "Invalid api key"
+msgstr "Неверный API ключ"
+
+#: src/WooCommerce/Order.php:154
+msgid "Warehouse"
+msgstr "Отделение"
+
+#: src/WooCommerce/Order.php:150
+msgid "City"
+msgstr "Город"
+
+#: templates/admin/page-options/tab-general.php:28
+msgid "API key"
+msgstr "API ключ"
+
+#: src/WooCommerce/Checkout.php:88
+#: src/WooCommerce/Shipping/Methods/NovaPoshta/Fields.php:193
+#: src/WooCommerce/Shipping/Methods/NovaPoshta/Fields.php:199
+msgid "Choose branch"
+msgstr "Выберите отделение"
+
+#: src/WooCommerce/Checkout.php:84
+#: src/WooCommerce/Shipping/Methods/NovaPoshta/Fields.php:183
+#: src/WooCommerce/Shipping/Methods/NovaPoshta/Fields.php:188
+msgid "Select delivery city"
+msgstr "Выберите город"
+
+#. Plugin Name of the plugin
+msgid "Shipping Nova Poshta for WooCommerce"
+msgstr "Shipping Nova Poshta for WooCommerce"

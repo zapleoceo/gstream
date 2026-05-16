@@ -1,0 +1,17 @@
+# Media uploads - never commit
+wp-content/uploads/
+
+# WordPress sensitive
+wp-config.php
+wp-config-local.php
+.htpasswd
+
+# Cache & generated
+wp-content/cache/
+wp-content/upgrade/
+wp-content/backups/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+*.log

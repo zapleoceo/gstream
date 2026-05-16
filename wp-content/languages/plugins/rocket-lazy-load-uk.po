@@ -1,0 +1,154 @@
+# Translation of Plugins - LazyLoad Plugin – Lazy Load Images, Videos, and Iframes - Stable (latest release) in Ukrainian
+# This file is distributed under the same license as the Plugins - LazyLoad Plugin – Lazy Load Images, Videos, and Iframes - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-02-28 15:00:51+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n % 10 == 1 && n % 100 != 11) ? 0 : ((n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14)) ? 1 : 2);\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: uk_UA\n"
+"Project-Id-Version: Plugins - LazyLoad Plugin – Lazy Load Images, Videos, and Iframes - Stable (latest release)\n"
+
+#. Plugin Name of the plugin
+#: rocket-lazy-load.php
+msgid "Lazy Load - Optimize Images"
+msgstr "Lazy Load - Оптимізація зображень"
+
+#. Author of the plugin
+#: rocket-lazy-load.php
+msgid "WP Rocket"
+msgstr "WP Rocket"
+
+#. Translators: %1$s = strong opening tag, %2$s = strong closing tag.
+#: views/admin-page.php:125
+msgid "%1$s24/7 support%2$s"
+msgstr "%1$sПідтримка 24/7%2$s"
+
+#. Translators: %1$s = WordPress version required.
+#: includes/RocketLazyloadRequirementsCheck.php:138
+msgid "WordPress %1$s. To use this %2$s version, please upgrade WordPress to version %1$s or higher."
+msgstr "WordPress %1$s. Щоб використовувати цю версію %2$s, будь ласка, оновіть WordPress до версії %1$s або новішої."
+
+#. Translators: %1$s = PHP version required.
+#: includes/RocketLazyloadRequirementsCheck.php:133
+msgid "PHP %1$s. To use this %2$s version, please ask your web host how to upgrade your server to PHP %1$s or higher."
+msgstr "PHP %1$s. Щоб використовувати цю %2$s версію, зверніться до вашого веб-хостера з проханням оновити ваш сервер до версії PHP %1$s або вище."
+
+#. Translators: %1$s = Plugin name, %2$s = Plugin version.
+#: includes/RocketLazyloadRequirementsCheck.php:129
+msgid "To function properly, %1$s %2$s requires at least:"
+msgstr "Для належної роботи %1$s %2$s потрібно принаймні:"
+
+#: views/imagify-notice.php:34
+msgid "Speed up your website and boost your SEO by reducing image file sizes without losing quality with Imagify."
+msgstr "Прискорюйте свій сайт і покращуйте SEO, зменшуючи розмір файлів зображень без втрати якості за допомогою Imagify."
+
+#: views/imagify-notice.php:37
+msgid "Install Imagify for Free"
+msgstr "Встановіть Imagify безкоштовно"
+
+#: src/Admin/AdminPage.php:91
+msgid "LazyLoad"
+msgstr "LazyLoad"
+
+#: src/Admin/AdminPage.php:79
+msgid "LazyLoad by WP Rocket"
+msgstr "LazyLoad від WP Rocket"
+
+#. Translators: %1$s = strong opening tag, %2$s = strong closing tag.
+#: views/admin-page.php:119
+msgid "Set up takes %1$s5 minutes flat%2$s"
+msgstr "Налаштування займає %1$s5 хвилин%2$s"
+
+#. Translators: %1$s = strong opening tag, %2$s = strong closing tag.
+#: views/admin-page.php:113
+msgid "Minimal configuration, %1$sImmediate results%2$s"
+msgstr "Мінімальна конфігурація, %1$sмиттєві результати%2$s"
+
+#. Translators: %1$s = strong opening tag, %2$s = strong closing tag.
+#: views/admin-page.php:107
+msgid "Watch your conversion rise with the %1$s100%% WooCommerce compatibility%2$s"
+msgstr "Спостерігайте за зростанням конверсії завдяки %1$s100%% сумісності з WooCommerce%2$s"
+
+#. Translators: %1$s = strong opening tag, %2$s = strong closing tag.
+#: views/admin-page.php:101
+msgid "%1$sBoost your SEO%2$s by preloading your cache page for Google’s bots"
+msgstr "%1$sПокращуйте свій SEO%2$s, попередньо завантаживши кеш-сторінку для ботів Google"
+
+#. Translators: %1$s = strong opening tag, %2$s = strong closing tag.
+#: views/admin-page.php:95
+msgid "All you need to %1$simprove your Google PageSpeed%2$s score"
+msgstr "Усе, що вам потрібно, щоб %1$sпокращити свій показник Google PageSpeed%2$s"
+
+#. Translators: %1$s = strong opening tag, %2$s = strong closing tag.
+#: views/admin-page.php:89
+msgid "%1$sMultiple new features%2$s to further improve your load time"
+msgstr "%1$sКілька нових функцій%2$s для подальшого покращення часу завантаження"
+
+#: views/admin-page.php:80
+msgid "Get WP&nbsp;Rocket Now!"
+msgstr "Отримайте WP&nbsp;Rocket зараз!"
+
+#: views/admin-page.php:75
+msgid "Go Premium with"
+msgstr "Перейдіть на Premium із"
+
+#: views/admin-page.php:73
+msgid "We recommend for you"
+msgstr "Ми рекомендуємо для вас"
+
+#: views/admin-page.php:18
+msgid "Iframes &amp; Videos"
+msgstr "Iframes та відео"
+
+#: views/admin-page.php:22
+msgid "Replace Youtube videos by thumbnail"
+msgstr "Замінити Youtube відео на мініатюру"
+
+#. Author URI of the plugin
+#: rocket-lazy-load.php
+msgid "https://wp-rocket.me"
+msgstr "https://wp-rocket.me"
+
+#. Description of the plugin
+#: rocket-lazy-load.php
+msgid "The tiny Lazy Load script for WordPress without jQuery or others libraries."
+msgstr "Дуже маленький скрипт Lazy Load для WordPress без jQuery чи інших бібліотек."
+
+#. Plugin URI of the plugin
+#: rocket-lazy-load.php
+msgid "http://wordpress.org/plugins/rocket-lazy-load/"
+msgstr "http://wordpress.org/plugins/rocket-lazy-load/"
+
+#: views/admin-page.php:136
+msgid "Save changes"
+msgstr "Зберегти зміни"
+
+#: views/admin-page.php:14
+msgid "Images"
+msgstr "Зображення"
+
+#: views/admin-page.php:52
+msgid "This mechanism reduces the number of HTTP requests and improves the loading time."
+msgstr "Цей механізм зменшує кількість HTTP-запитів і покращує час завантаження."
+
+#: views/admin-page.php:51
+msgid "LazyLoad displays images, iframes and videos on a page only when they are visible to the user."
+msgstr "LazyLoad відображає зображення, iframe та відео на сторінці лише тоді, коли їх бачить користувач."
+
+#: views/admin-page.php:50
+msgid "Lazyload"
+msgstr "Lazyload"
+
+#. Translators: %1$s is a <strong> tag, %2$s is </strong><br>, %3$s is the
+#. complete link tag to Rocket Lazy Load review form, %4$s is the closing </a>
+#. tag.
+#: views/admin-page.php:41
+msgid "%1$sDo you like this plugin?%2$s Please take a few seconds to %3$srate it on WordPress.org%4$s!"
+msgstr "%1$sВам подобається цей плагін?%2$s Будь ласка, витратьте кілька секунд, щоб %3$sоцінити його на WordPress.org%4$s!"
+
+#: src/Subscriber/AdminPageSubscriber.php:111 views/admin-page.php:35
+msgid "Settings"
+msgstr "Налаштування"
