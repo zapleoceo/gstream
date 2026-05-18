@@ -5,9 +5,7 @@
  * @package storefront
  */
 function theme_scripts(){
-	wp_enqueue_script('elevate-zoom', get_template_directory_uri() . '/assets/js/zoom/jquery.elevatezoom.js');
 	wp_enqueue_script('elevate-zoom-min', get_template_directory_uri() . '/assets/js/zoom/jquery.elevateZoom-3.0.8.min.js');
-	wp_enqueue_script('elevate-zoom-jquery', get_template_directory_uri() . '/assets/js/zoom/jquery-1.8.3.min.js');
 
 	wp_enqueue_style('slick-css', get_template_directory_uri() . '/slick/slick.css');
 	wp_enqueue_style('slick-theme-css', get_template_directory_uri() . '/slick/slick-theme.css');
