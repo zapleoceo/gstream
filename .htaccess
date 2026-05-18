@@ -1,20 +1,3 @@
-# BEGIN WebP
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  # Serve .webp if: browser supports it AND a .webp file exists next to the original
-  RewriteCond %{HTTP_ACCEPT} image/webp
-  RewriteCond %{REQUEST_FILENAME} \.(jpe?g|png)$
-  RewriteCond %{REQUEST_FILENAME}\.webp -f
-  RewriteRule ^(.+)\.(jpe?g|png)$ $1.$2.webp [T=image/webp,L]
-</IfModule>
-<IfModule mod_headers.c>
-  # Tell Cloudflare/CDN to cache JPG and WebP separately
-  <FilesMatch "\.(jpe?g|png|webp)$">
-    Header append Vary Accept
-  </FilesMatch>
-</IfModule>
-# END WebP
-
 # BEGIN GzipWpFastestCache
 <IfModule mod_deflate.c>
 AddType x-font/woff .woff
