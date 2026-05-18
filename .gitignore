@@ -10,6 +10,7 @@ wp-config-local.php
 wp-content/cache/
 wp-content/upgrade/
 wp-content/backups/
+sitemap_index.xml
 
 # WooCommerce logs and temp
 wp-content/wc-logs/
@@ -29,7 +30,6 @@ wp-content/plugins/wp-fastest-cache/
 wp-content/plugins/akismet/
 wp-content/plugins/google-sitemap-generator/
 wp-content/plugins/jetpack/
-wp-content/plugins/seo-by-rank-math/
 wp-content/plugins/shipping-nova-poshta-for-woocommerce/
 wp-content/plugins/wc-ukr-shipping/
 wp-content/plugins/woocommerce-admin/
