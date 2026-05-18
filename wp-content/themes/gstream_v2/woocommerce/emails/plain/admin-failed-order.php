@@ -10,19 +10,28 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates/Emails/Plain
- * @version 3.7.0
+ * @see https://woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates\Emails\Plain
+ * @version 9.8.0
  */
 
+use Automattic\WooCommerce\Utilities\FeaturesUtil;
+
 defined( 'ABSPATH' ) || exit;
+
+$email_improvements_enabled = FeaturesUtil::feature_is_enabled( 'email_improvements' );
 
 echo "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
 echo esc_html( wp_strip_all_tags( $email_heading ) );
 echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 
 /* translators: %1$s: Order number. %2$s: Customer full name. */
-echo sprintf( esc_html__( 'Payment for order #%1$s from %2$s has failed. The order was as follows:', 'woocommerce' ), esc_html( $order->get_order_number() ), esc_html( $order->get_formatted_billing_full_name() ) ) . "\n\n";
+$text = __( 'Payment for order #%1$s from %2$s has failed. The order was as follows:', 'woocommerce' );
+if ( $email_improvements_enabled ) {
+	/* translators: %1$s: Order number. %2$s: Customer full name. */
+	$text = __( 'Unfortunately, the payment for order #%1$s from %2$s has failed. The order was as follows:', 'woocommerce' );
+}
+echo sprintf( esc_html( $text ), esc_html( $order->get_order_number() ), esc_html( $order->get_formatted_billing_full_name() ) ) . "\n\n";
 
 /*
  * @hooked WC_Emails::order_details() Shows the order details table.
@@ -48,7 +57,7 @@ do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_
 echo "\n\n----------------------------------------\n\n";
 
 /**
- * Show user-defined additonal content - this is set in each email's settings.
+ * Show user-defined additional content - this is set in each email's settings.
  */
 if ( $additional_content ) {
 	echo esc_html( wp_strip_all_tags( wptexturize( $additional_content ) ) );

@@ -10,10 +10,14 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates/Emails/Plain
- * @version 3.7.0
+ * @see https://woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates\Emails\Plain
+ * @version 9.7.0
  */
+
+// phpcs:disable Universal.WhiteSpace.PrecisionAlignment.Found, Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed -- Plain text output needs specific spacing without tabs
+
+use Automattic\WooCommerce\Enums\OrderStatus;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -24,18 +28,28 @@ echo "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 /* translators: %s: Customer first name */
 echo sprintf( esc_html__( 'Hi %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) ) . "\n\n";
 
-if ( $order->has_status( 'pending' ) ) {
-	echo wp_kses_post(
-		sprintf(
-			/* translators: %1$s Site title, %2$s Order pay link */
-			__( 'An order has been created for you on %1$s. Your invoice is below, with a link to make payment when you’re ready: %2$s', 'woocommerce' ),
-			esc_html( get_bloginfo( 'name', 'display' ) ),
-			esc_url( $order->get_checkout_payment_url() )
-		)
-	) . "\n\n";
-
+if ( $order->needs_payment() ) {
+	if ( $order->has_status( OrderStatus::FAILED ) ) {
+		echo wp_kses_post(
+			sprintf(
+				/* translators: %1$s: Site title, %2$s: Order pay link */
+				__( 'Sorry, your order on %1$s was unsuccessful. Your order details are below, with a link to try your payment again: %2$s', 'woocommerce' ),
+				esc_html( get_bloginfo( 'name', 'display' ) ),
+				esc_url( $order->get_checkout_payment_url() )
+			)
+	    ) . "\n\n";
+	} else {
+		echo wp_kses_post(
+			sprintf(
+				/* translators: %1$s: Site title, %2$s: Order pay link */
+				__( 'An order has been created for you on %1$s. Your order details are below, with a link to make payment when you’re ready: %2$s', 'woocommerce' ),
+				esc_html( get_bloginfo( 'name', 'display' ) ),
+				esc_url( $order->get_checkout_payment_url() )
+			)
+	    ) . "\n\n";
+	}
 } else {
-	/* translators: %s Order date */
+	/* translators: %s: Order date */
 	echo sprintf( esc_html__( 'Here are the details of your order placed on %s:', 'woocommerce' ), esc_html( wc_format_datetime( $order->get_date_created() ) ) ) . "\n\n";
 }
 
@@ -69,7 +83,7 @@ do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_
 echo "\n\n----------------------------------------\n\n";
 
 /**
- * Show user-defined additonal content - this is set in each email's settings.
+ * Show user-defined additional content - this is set in each email's settings.
  */
 if ( $additional_content ) {
 	echo esc_html( wp_strip_all_tags( wptexturize( $additional_content ) ) );
@@ -77,3 +91,5 @@ if ( $additional_content ) {
 }
 
 echo wp_kses_post( apply_filters( 'woocommerce_email_footer_text', get_option( 'woocommerce_email_footer_text' ) ) );
+
+// phpcs:enable Universal.WhiteSpace.PrecisionAlignment.Found, Generic.WhiteSpace.DisallowSpaceIndent.SpacesUsed
