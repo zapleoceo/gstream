@@ -223,7 +223,7 @@ endif;
                                         <?= $product->get_price_html(); ?>
                                     </div>
                                     <div class="product-card__body__content__buy-box__controls">
-                                        <button data-quantity="1" class="product-card__body__content__buy-box__controls__button button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="<?= $product->id ?>" data-title='<?= $product->name ?>' data-product_sku="" aria-label="Добавить &quot;<?= $product->name ?>&quot; в корзину" rel="nofollow"
+                                        <button data-quantity="1" class="product-card__body__content__buy-box__controls__button button product_type_simple add_to_cart_button ajax_add_to_cart" data-product_id="<?= $product->get_id() ?>" data-title='<?= esc_attr( $product->get_name() ) ?>' data-product_sku="<?= esc_attr( $product->get_sku() ) ?>" aria-label="Добавить &quot;<?= esc_attr( $product->get_name() ) ?>&quot; в корзину" rel="nofollow"
                                             >Купити зараз</button>
                                         </div>
                                     </div>
