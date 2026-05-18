@@ -135,8 +135,9 @@ ALTER TABLE gs_actionscheduler_actions ENGINE=InnoDB;
 |-----------|--------|-------|--------|
 | 🔴 Зараз | Хотфікс AUTO_INCREMENT на `actionscheduler_actions` | Низький | ✅ Виконано |
 | 🔴 Зараз | Активувати SMTP-плагін | Низький | ✅ Виконано (⚠️ пароль потребує оновлення) |
-| 🔴 Цього тижня | Оновити PHP 7.3 → 8.1+ | Середній | ⏳ Хостинг-панель |
-| 🟠 Цього тижня | Запустити WooCommerce DB updater | Середній | ⏳ WP Admin → WooCommerce |
+| 🔴 Цього тижня | Оновити PHP 7.3 → 8.3 | Середній | ✅ Виконано (2026-05-18) |
+| 🔴 Цього тижня | Оновити WordPress + WooCommerce + плагіни | Середній | ✅ Виконано (2026-05-18) |
+| 🟠 Цього тижня | Запустити WooCommerce DB updater | Середній | ✅ Виконано (авто, v10.7.0) |
 | 🟠 Цього тижня | Очистити сміття БД (revisions, spam) | Низький | ✅ Виконано |
 | 🟡 Планово | Конвертація MyISAM → InnoDB | Середній (бекап) | ✅ Виконано (63 таблиці, 2026-05-16) |
 | 🟡 Планово | Оптимізація зображень + WebP | Низький | ⏳ Підключити Imagify/ShortPixel |
@@ -144,9 +145,9 @@ ALTER TABLE gs_actionscheduler_actions ENGINE=InnoDB;
 
 ---
 
-## ✅ Виконані роботи (2026-05-16)
+## ✅ Виконані роботи
 
-### Код / git
+### 2026-05-16 — Код / git
 - Видалено небезпечні файли: `testmail.php`, `fix-mysql-auth.php`, `php.ini`, `.user.ini`
 - Видалено старі папки плагінів: `_gmace`, `_smsfly`, `_woocommerce-and-1centerprise-data-exchange`, `_OLD__...`
 - Видалено мертвий код теми: `old_header.php`, `old_footer.php`, `test.php`
@@ -156,22 +157,30 @@ ALTER TABLE gs_actionscheduler_actions ENGINE=InnoDB;
 - SQL-захист: `array_map('intval', $categories)` у price range і count queries
 - Оновлено `.gitignore`
 
-### БД
+### 2026-05-16 — БД
 - `gs_actionscheduler_actions.action_id` — додано `AUTO_INCREMENT` (помилка `Duplicate entry '0'` усунена)
 - Очищено: 3 362 ревізій, 1 745 спам-коментарів, 45 transients, 148 старих ActionScheduler логів
-- Конвертовано **63 таблиці** з MyISAM → InnoDB
+- Конвертовано **63 таблиці** з MyISAM → InnoDB + ANALYZE TABLE
 
-### WP Admin
+### 2026-05-16 — WP Admin
 - Активовано WP Mail SMTP, налаштовано SMTP (mail.adm.tools, TLS, 587)
 - ⚠️ Пароль `zakaz@gstream.com.ua` — AUTH 535, потрібно оновити з хостинг-панелі
+
+### 2026-05-18 — Оновлення стеку
+- PHP 7.3 → **8.3** (FPM на /opt/php83)
+- WordPress 6.4.8 → **6.9.4**
+- WooCommerce 8.6.4 → **10.7.0** (кошик відновлено ✅)
+- WooCommerce DB: 3.6.5 → **10.7.0** (автоміграція)
+- AUTO_INCREMENT виправлено на: `gs_actionscheduler_groups`, `gs_actionscheduler_claims`
+- Оновлено 10 плагінів: advanced-woo-search, autoptimize, classic-editor, contact-form-7, filebird, wp-ban, wp-optimize, wp-pagenavi, wp-fastest-cache, wp-mail-smtp
+- **Швидкість**: категорія 0.08с, магазин 0.14с, кошик 0.25с
 
 ## ⏳ Залишилось
 
 | Задача | Де виконати |
 |--------|------------|
 | Оновити SMTP-пароль | Хостинг `mail.adm.tools` → WP Admin → WP Mail SMTP |
-| WooCommerce DB updater (3.6.5 → 8.6.4) | WP Admin → WooCommerce → Run updater |
-| PHP 7.3 → 8.1+ | Хостинг-панель |
+| ACF Pro 5.6.3 → 6.8.1 | Потрібен ліцензійний ключ → advancedcustomfields.com |
 | Видалити старі теми: `gstream`, `twentytwenty` | WP Admin → Теми |
 | Активувати Akismet | WP Admin → Плагіни |
 | Оптимізація зображень + WebP | Imagify або ShortPixel |
