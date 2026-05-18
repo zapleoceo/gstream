@@ -20,3 +20,9 @@ wp-content/uploads/woocommerce_uploads/
 Thumbs.db
 *.log
 .cursor/
+
+# Removed plugins — prevent accidental re-add
+wp-content/plugins/autoptimize/
+wp-content/plugins/post-smtp/
+wp-content/plugins/rocket-lazy-load/
+wp-content/plugins/wp-fastest-cache/
