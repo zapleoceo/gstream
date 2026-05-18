@@ -4,6 +4,7 @@ namespace Automattic\WooCommerce\Blocks\BlockTypes;
 use Automattic\WooCommerce\Blocks\Utils\BlocksWpQuery;
 use Automattic\WooCommerce\StoreApi\SchemaController;
 use Automattic\WooCommerce\StoreApi\StoreApi;
+use Automattic\WooCommerce\Enums\ProductStockStatus;
 
 /**
  * AbstractProductGrid class.
@@ -81,6 +82,9 @@ abstract class AbstractProductGrid extends AbstractDynamicBlock {
 		if ( ! $products ) {
 			return '';
 		}
+
+		// Prime caches to reduce future queries.
+		_prime_post_caches( array_filter( array_map( fn( $product ) => (int) $product->get_image_id(), $products ) ) );
 
 		/**
 		 * Override product description to prevent infinite loop.
@@ -289,7 +293,7 @@ abstract class AbstractProductGrid extends AbstractDynamicBlock {
 		$product_visibility_not_in = array( $product_visibility_terms['exclude-from-catalog'] );
 
 		if ( 'yes' === get_option( 'woocommerce_hide_out_of_stock_items' ) ) {
-			$product_visibility_not_in[] = $product_visibility_terms['outofstock'];
+			$product_visibility_not_in[] = $product_visibility_terms[ ProductStockStatus::OUT_OF_STOCK ];
 		}
 
 		$query_args['tax_query'][] = array(
@@ -360,9 +364,8 @@ abstract class AbstractProductGrid extends AbstractDynamicBlock {
 		// Remove ordering query arguments which may have been added by get_catalog_ordering_args.
 		WC()->query->remove_ordering_args();
 
-		// Prime caches to reduce future queries. Note _prime_post_caches is private--we could replace this with our own
-		// query if it becomes unavailable.
-		if ( is_callable( '_prime_post_caches' ) ) {
+		if ( ! empty( $results ) ) {
+			// Prime caches to reduce future queries.
 			_prime_post_caches( $results );
 		}
 
@@ -459,6 +462,7 @@ abstract class AbstractProductGrid extends AbstractDynamicBlock {
 		$classes = array(
 			'wc-block-grid',
 			"wp-block-{$this->block_name}",
+			"wp-block-woocommerce-{$this->block_name}",
 			"wc-block-{$this->block_name}",
 			"has-{$this->attributes['columns']}-columns",
 		);
@@ -666,6 +670,18 @@ abstract class AbstractProductGrid extends AbstractDynamicBlock {
 			$attributes['class'] .= ' ajax_add_to_cart';
 		}
 
+		/**
+		 * Filter to manipulate (add/modify/remove) attributes in the HTML code of the generated add to cart button.
+		 *
+		 * @since 8.6.0
+		 *
+		 * @param array      $attributes An associative array containing default HTML attributes of the add to cart button.
+		 * @param WC_Product $product    The WC_Product instance of the product that will be added to the cart once the button is pressed.
+		 *
+		 * @return array Returns an associative array derived from the default array passed as an argument and added the extra HTML attributes.
+		 */
+		$attributes = apply_filters( 'woocommerce_blocks_product_grid_add_to_cart_attributes', $attributes, $product );
+
 		return sprintf(
 			'<a href="%s" %s>%s</a>',
 			esc_url( $product->add_to_cart_url() ),
@@ -683,12 +699,12 @@ abstract class AbstractProductGrid extends AbstractDynamicBlock {
 	 */
 	protected function enqueue_data( array $attributes = [] ) {
 		parent::enqueue_data( $attributes );
-		$this->asset_data_registry->add( 'minColumns', wc_get_theme_support( 'product_blocks::min_columns', 1 ), true );
-		$this->asset_data_registry->add( 'maxColumns', wc_get_theme_support( 'product_blocks::max_columns', 6 ), true );
-		$this->asset_data_registry->add( 'defaultColumns', wc_get_theme_support( 'product_blocks::default_columns', 3 ), true );
-		$this->asset_data_registry->add( 'minRows', wc_get_theme_support( 'product_blocks::min_rows', 1 ), true );
-		$this->asset_data_registry->add( 'maxRows', wc_get_theme_support( 'product_blocks::max_rows', 6 ), true );
-		$this->asset_data_registry->add( 'defaultRows', wc_get_theme_support( 'product_blocks::default_rows', 3 ), true );
+		$this->asset_data_registry->add( 'minColumns', wc_get_theme_support( 'product_blocks::min_columns', 1 ) );
+		$this->asset_data_registry->add( 'maxColumns', wc_get_theme_support( 'product_blocks::max_columns', 6 ) );
+		$this->asset_data_registry->add( 'defaultColumns', wc_get_theme_support( 'product_blocks::default_columns', 3 ) );
+		$this->asset_data_registry->add( 'minRows', wc_get_theme_support( 'product_blocks::min_rows', 1 ) );
+		$this->asset_data_registry->add( 'maxRows', wc_get_theme_support( 'product_blocks::max_rows', 6 ) );
+		$this->asset_data_registry->add( 'defaultRows', wc_get_theme_support( 'product_blocks::default_rows', 3 ) );
 	}
 
 	/**

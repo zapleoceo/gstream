@@ -27,6 +27,15 @@ class CartCoupons extends AbstractCartRoute {
 	 * @return string
 	 */
 	public function get_path() {
+		return self::get_path_regex();
+	}
+
+	/**
+	 * Get the path of this rest route.
+	 *
+	 * @return string
+	 */
+	public static function get_path_regex() {
 		return '/cart/coupons';
 	}
 
@@ -120,7 +129,6 @@ class CartCoupons extends AbstractCartRoute {
 		$cart = $this->cart_controller->get_cart_instance();
 
 		$cart->remove_coupons();
-		$cart->calculate_totals();
 
 		return new \WP_REST_Response( [], 200 );
 	}

@@ -1,12 +1,16 @@
-<?php
+<?php // phpcs:ignore Generic.PHP.RequireStrictTypes.MissingDeclaration
 namespace Automattic\WooCommerce\StoreApi\Routes\V1;
 
+use Automattic\WooCommerce\Enums\ProductStatus;
 use Automattic\WooCommerce\StoreApi\Exceptions\RouteException;
+use Automattic\WooCommerce\StoreApi\Utilities\ProductLinksTrait;
 
 /**
  * ProductsBySlug class.
  */
 class ProductsBySlug extends AbstractRoute {
+	use ProductLinksTrait;
+
 	/**
 	 * The route identifier.
 	 *
@@ -27,6 +31,15 @@ class ProductsBySlug extends AbstractRoute {
 	 * @return string
 	 */
 	public function get_path() {
+		return self::get_path_regex();
+	}
+
+	/**
+	 * Get the path of this rest route.
+	 *
+	 * @return string
+	 */
+	public static function get_path_regex() {
 		return '/products/(?P<slug>[\S]+)';
 	}
 
@@ -54,6 +67,7 @@ class ProductsBySlug extends AbstractRoute {
 						)
 					),
 				),
+				'allow_batch'         => [ 'v1' => true ],
 			],
 			'schema' => [ $this->schema, 'get_public_item_schema' ],
 		];
@@ -74,11 +88,11 @@ class ProductsBySlug extends AbstractRoute {
 			$object = $this->get_product_variation_by_slug( $slug );
 		}
 
-		if ( ! $object || 0 === $object->get_id() ) {
+		if ( ! $object || 0 === $object->get_id() || ProductStatus::PUBLISH !== $object->get_status() ) {
 			throw new RouteException( 'woocommerce_rest_product_invalid_slug', __( 'Invalid product slug.', 'woocommerce' ), 404 );
 		}
 
-		return rest_ensure_response( $this->schema->get_item_response( $object ) );
+		return $this->prepare_item_for_response( $object, $request );
 	}
 
 	/**

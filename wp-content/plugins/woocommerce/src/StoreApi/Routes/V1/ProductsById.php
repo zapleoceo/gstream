@@ -1,12 +1,16 @@
-<?php
+<?php // phpcs:ignore Generic.PHP.RequireStrictTypes.MissingDeclaration
 namespace Automattic\WooCommerce\StoreApi\Routes\V1;
 
+use Automattic\WooCommerce\Enums\ProductStatus;
 use Automattic\WooCommerce\StoreApi\Exceptions\RouteException;
+use Automattic\WooCommerce\StoreApi\Utilities\ProductLinksTrait;
 
 /**
  * ProductsById class.
  */
 class ProductsById extends AbstractRoute {
+	use ProductLinksTrait;
+
 	/**
 	 * The route identifier.
 	 *
@@ -27,6 +31,15 @@ class ProductsById extends AbstractRoute {
 	 * @return string
 	 */
 	public function get_path() {
+		return self::get_path_regex();
+	}
+
+	/**
+	 * Get the path of this rest route.
+	 *
+	 * @return string
+	 */
+	public static function get_path_regex() {
 		return '/products/(?P<id>[\d]+)';
 	}
 
@@ -54,6 +67,7 @@ class ProductsById extends AbstractRoute {
 						)
 					),
 				),
+				'allow_batch'         => [ 'v1' => true ],
 			],
 			'schema' => [ $this->schema, 'get_public_item_schema' ],
 		];
@@ -69,10 +83,10 @@ class ProductsById extends AbstractRoute {
 	protected function get_route_response( \WP_REST_Request $request ) {
 		$object = wc_get_product( (int) $request['id'] );
 
-		if ( ! $object || 0 === $object->get_id() ) {
+		if ( ! $object || 0 === $object->get_id() || ProductStatus::PUBLISH !== $object->get_status() ) {
 			throw new RouteException( 'woocommerce_rest_product_invalid_id', __( 'Invalid product ID.', 'woocommerce' ), 404 );
 		}
 
-		return rest_ensure_response( $this->schema->get_item_response( $object ) );
+		return $this->prepare_item_for_response( $object, $request );
 	}
 }
