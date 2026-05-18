@@ -10,9 +10,9 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
- * @version 3.3.1
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
+ * @version 9.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -28,19 +28,24 @@ if ( $total <= 1 ) {
 	return;
 }
 ?>
-<nav class="woocommerce-pagination" data-test="test">
+<nav class="woocommerce-pagination" aria-label="<?php esc_attr_e( 'Product Pagination', 'woocommerce' ); ?>">
 	<?php
-		echo paginate_links( apply_filters( 'woocommerce_pagination_args', array( // WPCS: XSS ok.
-			'base'         => $base,
-			'format'       => $format,
-			'add_args'     => false,
-			'current'      => max( 1, $current ),
-			'total'        => $total,
-			'prev_text'    => '&larr;',
-			'next_text'    => '&rarr;',
-			'type'         => 'list',
-			'end_size'     => 3,
-			'mid_size'     => 3,
-		) ) );
+	echo paginate_links(
+		apply_filters(
+			'woocommerce_pagination_args',
+			array( // WPCS: XSS ok.
+				'base'      => $base,
+				'format'    => $format,
+				'add_args'  => false,
+				'current'   => max( 1, $current ),
+				'total'     => $total,
+				'prev_text' => is_rtl() ? '&rarr;' : '&larr;',
+				'next_text' => is_rtl() ? '&larr;' : '&rarr;',
+				'type'      => 'list',
+				'end_size'  => 3,
+				'mid_size'  => 3,
+			)
+		)
+	);
 	?>
 </nav>
