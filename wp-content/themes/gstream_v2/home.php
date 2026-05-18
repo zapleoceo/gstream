@@ -140,7 +140,8 @@ get_header();
                         'post_type' => 'product',
                         'post_status' => 'publish',
                         'posts_per_page' => 12,
-                        'orderby' => 'price',
+                        'orderby' => 'date',
+                        'order' => 'DESC',
                         'meta_query' => array(
                             array(
                                 'key' => '_thumbnail_id'
