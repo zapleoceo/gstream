@@ -652,3 +652,41 @@ add_action( 'admin_head', function () {
 	</style>';
 } );
 
+add_action( 'admin_footer-post.php', function () {
+	global $post;
+	if ( ! $post || get_post_type( $post ) !== 'product' ) {
+		return;
+	}
+	?>
+	<script>
+	(function() {
+		var form = document.getElementById('post');
+		if ( ! form ) { return; }
+		// Rank Math calls requestSubmit() after async SEO saves, which re-fires
+		// the submit event. WordPress autosave handler intercepts requestSubmit(),
+		// and calls form.submit() only after completing its own AJAX. If the
+		// heartbeat is down ("Connection Lost"), autosave is suspended and
+		// form.submit() is never called — the product never saves.
+		// Fix: override requestSubmit to suspend autosave and submit directly.
+		form.requestSubmit = function( submitter ) {
+			if ( typeof wp !== 'undefined' && wp.autosave ) {
+				wp.autosave.server.suspend();
+			}
+			if ( submitter ) {
+				var hiddenName = submitter.getAttribute('name');
+				var hiddenValue = submitter.getAttribute('value');
+				if ( hiddenName ) {
+					var input = document.createElement('input');
+					input.type = 'hidden';
+					input.name = hiddenName;
+					input.value = hiddenValue || '';
+					form.appendChild(input);
+				}
+			}
+			HTMLFormElement.prototype.submit.call( form );
+		};
+	})();
+	</script>
+	<?php
+} );
+
