@@ -652,9 +652,9 @@ add_action( 'admin_head', function () {
 	</style>';
 } );
 
-add_action( 'admin_footer-post.php', function () {
-	global $post;
-	if ( ! $post || get_post_type( $post ) !== 'product' ) {
+add_action( 'admin_footer', function () {
+	global $post, $pagenow;
+	if ( $pagenow !== 'post.php' || ! $post || get_post_type( $post ) !== 'product' ) {
 		return;
 	}
 	?>
