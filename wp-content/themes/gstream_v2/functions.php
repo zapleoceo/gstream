@@ -633,7 +633,22 @@ if( function_exists('acf_add_options_page') ) {
 		'menu_slug' 	=> 'g-stream-settings',
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
-	));	
+	));
 }
 
+add_action( 'admin_head', function () {
+	$screen = get_current_screen();
+	if ( ! $screen || $screen->id !== 'edit-product' ) {
+		return;
+	}
+	echo '<style>
+		.column-taxonomy-product_brand {
+			width: 80px !important;
+			max-width: 80px;
+			word-break: break-word;
+			overflow-wrap: break-word;
+			white-space: normal;
+		}
+	</style>';
+} );
 
