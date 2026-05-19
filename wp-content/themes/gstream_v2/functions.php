@@ -672,6 +672,11 @@ add_action( 'admin_footer', function () {
 			if ( typeof wp !== 'undefined' && wp.autosave ) {
 				wp.autosave.server.suspend();
 			}
+			// Sync TinyMCE editors to their textareas before submit,
+			// otherwise description/content changes are lost.
+			if ( typeof tinyMCE !== 'undefined' ) {
+				tinyMCE.triggerSave();
+			}
 			if ( submitter ) {
 				var hiddenName = submitter.getAttribute('name');
 				var hiddenValue = submitter.getAttribute('value');
