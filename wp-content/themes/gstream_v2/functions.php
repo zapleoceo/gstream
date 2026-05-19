@@ -677,6 +677,12 @@ add_action( 'admin_footer', function () {
 			if ( typeof tinyMCE !== 'undefined' ) {
 				tinyMCE.triggerSave();
 			}
+			// Remove beforeunload handlers so WordPress doesn't show
+			// "Changes may not be saved" warning during a legitimate save.
+			window.onbeforeunload = null;
+			if ( typeof jQuery !== 'undefined' ) {
+				jQuery( window ).off( 'beforeunload' );
+			}
 			if ( submitter ) {
 				var hiddenName = submitter.getAttribute('name');
 				var hiddenValue = submitter.getAttribute('value');
