@@ -701,3 +701,200 @@ add_action( 'admin_footer', function () {
 	<?php
 } );
 
+// AJAX handler: return order data as JSON for print document
+add_action( 'wp_ajax_gs_order_print_data', function () {
+	if ( ! current_user_can( 'edit_shop_orders' )
+		|| ! check_ajax_referer( 'gs_order_print_data', '_ajax_nonce', false ) ) {
+		wp_send_json_error( '', 403 );
+	}
+	$order_id = intval( $_POST['order_id'] ?? 0 );
+	$order    = $order_id ? wc_get_order( $order_id ) : null;
+	if ( ! $order ) {
+		wp_send_json_error( 'not found', 404 );
+	}
+
+	$items = [];
+	foreach ( $order->get_items() as $item ) {
+		$product  = $item->get_product();
+		$items[] = [
+			'name'  => $item->get_name(),
+			'sku'   => $product ? $product->get_sku() : '',
+			'qty'   => $item->get_quantity(),
+			'total' => number_format( (float) $item->get_total(), 2, '.', '' ),
+		];
+	}
+
+	$shipping_method = '';
+	foreach ( $order->get_items( 'shipping' ) as $s ) {
+		$shipping_method = $s->get_name();
+		break;
+	}
+
+	wp_send_json_success( [
+		'number'          => $order->get_order_number(),
+		'date'            => $order->get_date_created()
+			? $order->get_date_created()->date_i18n( 'd.m.Y, H:i' )
+			: '',
+		'payment_method'  => $order->get_payment_method_title(),
+		'shipping_method' => $shipping_method,
+		'billing_name'    => trim( $order->get_billing_first_name() . ' ' . $order->get_billing_last_name() ),
+		'billing_phone'   => $order->get_billing_phone(),
+		'shipping_address' => $order->get_formatted_shipping_address(),
+		'items'           => $items,
+		'total'           => number_format( (float) $order->get_total(), 2, '.', '' ),
+		'items_count'     => $order->get_item_count(),
+		'currency'        => get_woocommerce_currency_symbol(),
+	] );
+} );
+
+// Inject print button into WooCommerce order preview modal
+add_action( 'admin_footer', function () {
+	$screen = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+	// Works for both legacy (edit.php?post_type=shop_order) and HPOS orders list
+	if ( ! $screen ) {
+		return;
+	}
+	$is_orders = in_array( $screen->id, [ 'edit-shop_order', 'woocommerce_page_wc-orders' ], true );
+	if ( ! $is_orders ) {
+		return;
+	}
+	?>
+	<script>
+	(function($) {
+		var lastOrderId = null;
+
+		// Track which order was previewed — WC puts data-order-id on the button
+		$(document).on('click', '.order-preview', function() {
+			lastOrderId = $(this).data('order-id')
+				|| $(this).closest('tr').attr('id')?.replace('post-', '')
+				|| null;
+		});
+
+		// Watch for WooCommerce order preview modal to open (Backbone model)
+		$(document).on('wc_backbone_modal_loaded', function(e, target) {
+			if (target !== 'wc-modal-view-order') { return; }
+			addPrintButton();
+		});
+
+		// Fallback: MutationObserver for dialog element
+		var observer = new MutationObserver(function(mutations) {
+			mutations.forEach(function(m) {
+				m.addedNodes.forEach(function(node) {
+					if (node.nodeType !== 1) { return; }
+					var modal = node.classList && node.classList.contains('wc-backbone-modal')
+						? node
+						: node.querySelector && node.querySelector('.wc-backbone-modal');
+					if (modal) { addPrintButton(); }
+				});
+			});
+		});
+		observer.observe(document.body, { childList: true, subtree: true });
+
+		function addPrintButton() {
+			var $footer = $('.wc-backbone-modal-footer, .wc-order-preview footer');
+			if (!$footer.length || $footer.find('.gs-print-btn').length) { return; }
+
+			var orderId = lastOrderId;
+			if (!orderId) {
+				// Try extracting from modal title or order number element
+				var numEl = $('.wc-backbone-modal .order-number, .wc-backbone-modal h2');
+				var m = numEl.text().match(/#?(\d+)/);
+				if (m) { orderId = m[1]; }
+			}
+
+			var $btn = $('<button type="button" class="button gs-print-btn">Друк</button>');
+			$btn.css({ marginLeft: '8px' });
+			$footer.append($btn);
+
+			$btn.on('click', function() {
+				if (!orderId) { alert('Не вдалося визначити номер замовлення'); return; }
+				$.post(ajaxurl, {
+					action: 'gs_order_print_data',
+					order_id: orderId,
+					_ajax_nonce: gs_print.nonce
+				}, function(resp) {
+					if (!resp.success) { alert('Помилка отримання даних'); return; }
+					openPrintWindow(resp.data);
+				});
+			});
+		}
+
+		function openPrintWindow(d) {
+			var itemsRows = d.items.map(function(it) {
+				return '<tr>' +
+					'<td>' + escHtml(it.name) + '<br><small>Код товару ' + escHtml(it.sku) + '</small></td>' +
+					'<td style="text-align:center">' + it.qty + ' шт.</td>' +
+					'<td style="text-align:right">' + it.total + ' ' + escHtml(d.currency) + '</td>' +
+				'</tr>';
+			}).join('');
+
+			var html = '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
+				'<title>Замовлення №' + escHtml(d.number) + '</title>' +
+				'<style>' +
+				'body{font-family:Arial,sans-serif;font-size:13px;margin:20px;color:#222}' +
+				'h3{font-size:14px;font-weight:bold;border-bottom:1px solid #ccc;padding-bottom:4px;margin-bottom:8px}' +
+				'.row{display:flex;gap:40px;margin-bottom:20px}' +
+				'.col{flex:1}' +
+				'.info-label{color:#888;font-size:11px;margin-top:6px}' +
+				'.info-val{font-weight:bold}' +
+				'table{width:100%;border-collapse:collapse;margin-bottom:10px}' +
+				'th{background:#f5f5f5;padding:6px 8px;text-align:left;font-size:12px;border-bottom:1px solid #ddd}' +
+				'td{padding:6px 8px;border-bottom:1px solid #eee;vertical-align:top}' +
+				'.total-row td{font-weight:bold;border-top:2px solid #ccc;border-bottom:none}' +
+				'@media print{body{margin:0}}' +
+				'</style></head><body>' +
+				'<div class="row">' +
+					'<div class="col">' +
+						'<h3>Інформація про замовлення</h3>' +
+						'<div class="info-label">Номер замовлення</div>' +
+						'<div class="info-val">№ ' + escHtml(d.number) + '</div>' +
+						'<div class="info-label">Дата замовлення</div>' +
+						'<div class="info-val">' + escHtml(d.date) + '</div>' +
+						'<div class="info-label">Метод оплати</div>' +
+						'<div class="info-val">' + escHtml(d.payment_method) + '</div>' +
+						(d.shipping_method ? '<div class="info-label">Метод доставки</div><div class="info-val">' + escHtml(d.shipping_method) + '</div>' : '') +
+					'</div>' +
+					'<div class="col">' +
+						'<h3>Дані покупця</h3>' +
+						'<div class="info-label">Ім\'я</div>' +
+						'<div class="info-val">' + escHtml(d.billing_name) + '</div>' +
+						'<div class="info-label">Мобільний телефон</div>' +
+						'<div class="info-val">' + escHtml(d.billing_phone) + '</div>' +
+					'</div>' +
+				'</div>' +
+				'<h3>Товари ' + d.items_count + '</h3>' +
+				'<table><thead><tr><th>Товар</th><th style="text-align:center">Кількість</th><th style="text-align:right">Сума</th></tr></thead>' +
+				'<tbody>' + itemsRows + '</tbody>' +
+				'<tfoot><tr class="total-row"><td colspan="2">Разом ' + d.items_count + ' шт.</td><td style="text-align:right">' + d.total + ' ' + escHtml(d.currency) + '</td></tr></tfoot>' +
+				'</table>' +
+				(d.shipping_address ? '<div class="row"><div class="col"></div><div class="col"><h3>Адреса доставки</h3><div>' + d.shipping_address.replace(/\n/g,'<br>') + '</div></div></div>' : '') +
+				'<script>window.onload=function(){window.print();window.close();}<\/script>' +
+				'</body></html>';
+
+			var w = window.open('', '_blank', 'width=700,height=900');
+			w.document.write(html);
+			w.document.close();
+		}
+
+		function escHtml(str) {
+			return String(str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+		}
+	})(jQuery);
+	</script>
+	<?php
+} );
+
+// Локалізація nonce для print AJAX
+add_action( 'admin_enqueue_scripts', function ( $hook ) {
+	if ( ! in_array( $hook, [ 'edit.php', 'woocommerce_page_wc-orders' ], true ) ) {
+		return;
+	}
+	if ( isset( $_GET['post_type'] ) && $_GET['post_type'] !== 'shop_order' && $hook === 'edit.php' ) {
+		return;
+	}
+	wp_add_inline_script(
+		'jquery-core',
+		'var gs_print = ' . wp_json_encode( [ 'nonce' => wp_create_nonce( 'gs_order_print_data' ) ] ) . ';'
+	);
+} );
+
