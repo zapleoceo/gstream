@@ -766,33 +766,27 @@ add_action( 'admin_footer', function () {
 		// Track which order was previewed — WC puts data-order-id on the button
 		$(document).on('click', '.order-preview', function() {
 			lastOrderId = $(this).data('order-id')
-				|| $(this).closest('tr').attr('id')?.replace('post-', '')
+				|| $(this).closest('tr').attr('id').replace('post-', '')
 				|| null;
+			// Modal content is injected into existing #wc-backbone-modal-dialog,
+			// so MutationObserver on body won't fire. Poll until footer appears.
+			var attempts = 0;
+			var interval = setInterval(function() {
+				attempts++;
+				if (addPrintButton() || attempts > 20) { clearInterval(interval); }
+			}, 100);
 		});
 
-		// Watch for WooCommerce order preview modal to open (Backbone model)
+		// Also catch via WC backbone event as backup
 		$(document).on('wc_backbone_modal_loaded', function(e, target) {
 			if (target !== 'wc-modal-view-order') { return; }
-			addPrintButton();
+			setTimeout(addPrintButton, 50);
 		});
-
-		// Fallback: MutationObserver for dialog element
-		var observer = new MutationObserver(function(mutations) {
-			mutations.forEach(function(m) {
-				m.addedNodes.forEach(function(node) {
-					if (node.nodeType !== 1) { return; }
-					var modal = node.classList && node.classList.contains('wc-backbone-modal')
-						? node
-						: node.querySelector && node.querySelector('.wc-backbone-modal');
-					if (modal) { addPrintButton(); }
-				});
-			});
-		});
-		observer.observe(document.body, { childList: true, subtree: true });
 
 		function addPrintButton() {
-			var $footer = $('.wc-backbone-modal-footer, .wc-order-preview footer');
-			if (!$footer.length || $footer.find('.gs-print-btn').length) { return; }
+			var $footer = $('.wc-backbone-modal-main footer');
+			if (!$footer.length) { return false; }
+			if ($footer.find('.gs-print-btn').length) { return true; }
 
 			var orderId = lastOrderId;
 			if (!orderId) {
@@ -817,6 +811,8 @@ add_action( 'admin_footer', function () {
 					openPrintWindow(resp.data);
 				});
 			});
+
+			return true;
 		}
 
 		function openPrintWindow(d) {
