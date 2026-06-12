@@ -760,6 +760,7 @@ add_action( 'admin_footer', function () {
 	}
 	?>
 	<script>
+	var gs_print = <?php echo wp_json_encode( [ 'nonce' => wp_create_nonce( 'gs_order_print_data' ) ] ); ?>;
 	(function($) {
 		var lastOrderId = null;
 
@@ -802,20 +803,24 @@ add_action( 'admin_footer', function () {
 
 			$btn.on('click', function() {
 				if (!orderId) { alert('Не вдалося визначити номер замовлення'); return; }
+				// Open window synchronously during click (before AJAX) to avoid popup blocker
+				var printWin = window.open('', '_blank', 'width=750,height=950,scrollbars=yes');
+				printWin.document.write('<html><body style="font-family:Arial;padding:20px">Завантаження...</body></html>');
 				$.post(ajaxurl, {
 					action: 'gs_order_print_data',
 					order_id: orderId,
 					_ajax_nonce: gs_print.nonce
 				}, function(resp) {
-					if (!resp.success) { alert('Помилка отримання даних'); return; }
-					openPrintWindow(resp.data);
+					if (!resp.success) { printWin.close(); alert('Помилка отримання даних'); return; }
+					openPrintWindow(resp.data, printWin);
 				});
 			});
 
 			return true;
 		}
 
-		function openPrintWindow(d) {
+		function openPrintWindow(d, w) {
+			var printWin = w || window.open('', '_blank', 'width=750,height=950,scrollbars=yes');
 			var itemsRows = d.items.map(function(it) {
 				return '<tr>' +
 					'<td>' + escHtml(it.name) + '<br><small>Код товару ' + escHtml(it.sku) + '</small></td>' +
@@ -861,15 +866,20 @@ add_action( 'admin_footer', function () {
 				'<h3>Товари ' + d.items_count + '</h3>' +
 				'<table><thead><tr><th>Товар</th><th style="text-align:center">Кількість</th><th style="text-align:right">Сума</th></tr></thead>' +
 				'<tbody>' + itemsRows + '</tbody>' +
-				'<tfoot><tr class="total-row"><td colspan="2">Разом ' + d.items_count + ' шт.</td><td style="text-align:right">' + d.total + ' ' + escHtml(d.currency) + '</td></tr></tfoot>' +
 				'</table>' +
+				'<div style="text-align:right;margin-bottom:20px">' +
+					'<table style="margin-left:auto;border-collapse:collapse;min-width:220px">' +
+						'<tr><td style="padding:4px 12px;color:#888">Товарів:</td><td style="padding:4px 8px;font-weight:bold">' + d.items_count + ' шт.</td></tr>' +
+						'<tr style="border-top:2px solid #333"><td style="padding:6px 12px;font-size:15px;font-weight:bold">Загальна сума:</td><td style="padding:6px 8px;font-size:15px;font-weight:bold;white-space:nowrap">' + d.total + ' ' + escHtml(d.currency) + '</td></tr>' +
+					'</table>' +
+				'</div>' +
 				(d.shipping_address ? '<div class="row"><div class="col"></div><div class="col"><h3>Адреса доставки</h3><div>' + d.shipping_address.replace(/\n/g,'<br>') + '</div></div></div>' : '') +
 				'<script>window.onload=function(){window.print();window.close();}<\/script>' +
 				'</body></html>';
 
-			var w = window.open('', '_blank', 'width=700,height=900');
-			w.document.write(html);
-			w.document.close();
+			printWin.document.open();
+			printWin.document.write(html);
+			printWin.document.close();
 		}
 
 		function escHtml(str) {
@@ -880,17 +890,4 @@ add_action( 'admin_footer', function () {
 	<?php
 } );
 
-// Локалізація nonce для print AJAX
-add_action( 'admin_enqueue_scripts', function ( $hook ) {
-	if ( ! in_array( $hook, [ 'edit.php', 'woocommerce_page_wc-orders' ], true ) ) {
-		return;
-	}
-	if ( isset( $_GET['post_type'] ) && $_GET['post_type'] !== 'shop_order' && $hook === 'edit.php' ) {
-		return;
-	}
-	wp_add_inline_script(
-		'jquery-core',
-		'var gs_print = ' . wp_json_encode( [ 'nonce' => wp_create_nonce( 'gs_order_print_data' ) ] ) . ';'
-	);
-} );
 
