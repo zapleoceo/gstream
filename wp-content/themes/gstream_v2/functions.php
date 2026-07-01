@@ -535,49 +535,72 @@ function breadcrumbs($cat_id, $page){
 add_filter( 'woocommerce_cart_needs_payment', '__return_false' );
 // удаление полей с формы "детали оплаты"
 
-add_filter('woocommerce_checkout_fields','remove_checkout_fields');
-function remove_checkout_fields($fields){
+add_filter( 'woocommerce_checkout_fields', 'remove_checkout_fields' );
+function remove_checkout_fields( $fields ) {
+	// Remove fields we don't need
+	$remove = [
+		'billing_address_2',
+		'billing_email',
+		'billing_country',
+		'billing_state',
+		'billing_postcode',
+		'billing_company',
+	];
+	foreach ( $remove as $key ) {
+		unset( $fields['billing'][ $key ] );
+	}
 
-    $fields['billing']['billing_address_1']['placeholder'] = 'Введите город';
-    
-    $fields['billing']['billing_address_2']['type']="select";
-    $fields['billing']['billing_address_2']['value']="";
-    $fields['billing']['billing_address_2']['autocomplete']="";
-    $fields['billing']['billing_address_2']['required'] = true;
-    $fields['billing']['billing_address_2']['placeholder'] = 'Новая почта...';
-    $fields['billing']['billing_address_2']['label']="Выберите способ доставки";
-    $fields['billing']['billing_address_2']['options'] = array(
-      'option_1' => 'Новая почта',
-      'option_2' => 'Автолюкс',
-      'option_3' => 'Деливери',
-      'option_4' => 'Міст-експрес',
-      'option_5' => 'Гюнсел',
-      'option_6' => 'Самовывоз (м.Дніпро, вул. Алана Шепарда 33а (Суворова 33а))',
-    );
-    
+	// Last name — "Прізвище"
+	$fields['billing']['billing_last_name']['label']    = 'Прізвище';
+	$fields['billing']['billing_last_name']['priority'] = 10;
 
-    $fields['billing']['billing_city']['type']="select";
-    $fields['billing']['billing_email']['required']=false;
-    $fields['billing']['billing_city']['value']="";
-    $fields['billing']['billing_city']['autocomplete']="";
-    $fields['billing']['billing_city']['required'] = true;
-    $fields['billing']['billing_city']['placeholder'] = 'Наложенный платеж...';
-    $fields['billing']['billing_city']['label']="Введите способ оплаты";
-    $fields['billing']['billing_city']['options'] = array(
-      'option_7' => 'Безналичный расчет (на карту Приват Банк)',
-      'option_8' => 'Наложенный платеж',
-      'option_9' => 'Оплата наличными (при самовывозе г.Днепр)',
-    );
-    
-	//unset($fields['billing']['billing_address_2']);
-	//unset($fields['billing']['billing_email']);
-	//unset($fields['billing']['billing_address_1']);
-	unset($fields['billing']['billing_country']);
-	unset($fields['billing']['billing_company']);
-	unset($fields['billing']['billing_state']);
-    unset($fields['billing']['billing_postcode']);
+	// First name — "Ім'я та по батькові"
+	$fields['billing']['billing_first_name']['label']    = "Ім'я та по батькові";
+	$fields['billing']['billing_first_name']['priority'] = 20;
+
+	// Phone
+	$fields['billing']['billing_phone']['label']    = 'Номер телефону';
+	$fields['billing']['billing_phone']['priority'] = 30;
+
+	// City — reset to plain text input (was hijacked as payment select)
+	$fields['billing']['billing_city'] = [
+		'type'        => 'text',
+		'label'       => 'Місто або селище',
+		'placeholder' => 'Наприклад: Київ',
+		'required'    => true,
+		'class'       => [ 'form-row-wide' ],
+		'priority'    => 40,
+	];
+
+	// Address 1 — repurposed as Nova Poshta branch/parcel machine
+	$fields['billing']['billing_address_1'] = [
+		'type'        => 'text',
+		'label'       => 'Нова Пошта — відділення або поштомат',
+		'placeholder' => 'Наприклад: відділення №3 або поштомат №12345',
+		'required'    => true,
+		'class'       => [ 'form-row-wide' ],
+		'priority'    => 50,
+	];
+
+	// Remove all shipping fields (delivery is via Nova Poshta only)
+	$fields['shipping'] = [];
+
 	return $fields;
 }
+
+// Minimum order amount — 500 UAH
+add_action( 'woocommerce_check_cart_items', function () {
+	$min = 500;
+	if ( WC()->cart->get_subtotal() < $min ) {
+		wc_add_notice(
+			sprintf(
+				'Мінімальна сума замовлення — %s. Додайте ще товарів до кошика.',
+				wc_price( $min )
+			),
+			'error'
+		);
+	}
+} );
 
 
 
