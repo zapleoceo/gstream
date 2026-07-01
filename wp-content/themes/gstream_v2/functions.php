@@ -669,24 +669,32 @@ add_action( 'woocommerce_proceed_to_checkout', function () {
 
 	$missing = $min - $subtotal;
 	?>
-	<a href="#" class="checkout-button button alt gs-checkout-disabled" aria-disabled="true" onclick="return false;">
-		<?php esc_html_e( 'Оформити замовлення', 'woocommerce' ); ?>
-	</a>
-	<p class="gs-min-order-notice">
-		Мінімальна сума замовлення — <?php echo wp_kses_post( wc_price( $min ) ); ?>.
-		Додайте ще товарів на <?php echo wp_kses_post( wc_price( $missing ) ); ?>.
-	</p>
+	<div class="gs-checkout-disabled-wrap">
+		<a href="#" class="checkout-button products-list__item__button button alt gs-checkout-disabled" aria-disabled="true" onclick="return false;" style="text-decoration: none">
+			<span class="products-list__item__button__text">
+				<?php esc_html_e( 'Оформити замовлення', 'woocommerce' ); ?>
+			</span>
+		</a>
+		<p class="gs-min-order-notice">
+			Мінімальна сума замовлення — <?php echo wp_kses_post( wc_price( $min ) ); ?>.
+			Додайте ще товарів на <?php echo wp_kses_post( wc_price( $missing ) ); ?>.
+		</p>
+	</div>
 	<style>
+		.gs-checkout-disabled-wrap {
+			display: block;
+		}
 		.gs-checkout-disabled {
-			opacity: .5;
+			background: #bbb !important;
+			color: #666 !important;
 			cursor: not-allowed;
 			pointer-events: none;
 		}
 		.gs-min-order-notice {
 			color: #c0392b;
 			font-size: 13px;
-			margin-top: 8px;
-			text-align: right;
+			margin: 8px 0 0;
+			text-align: left;
 		}
 	</style>
 	<?php
