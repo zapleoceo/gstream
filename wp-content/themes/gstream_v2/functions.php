@@ -684,8 +684,9 @@ add_action( 'woocommerce_proceed_to_checkout', function () {
 		.gs-checkout-disabled-wrap {
 			display: block;
 		}
-		.gs-checkout-disabled {
-			background: #bbb !important;
+		/* Higher specificity than the theme's .wc-proceed-to-checkout .button.checkout-button rule */
+		.wc-proceed-to-checkout .button.checkout-button.gs-checkout-disabled {
+			background-color: #bbb !important;
 			color: #666 !important;
 			cursor: not-allowed;
 			pointer-events: none;
