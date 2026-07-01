@@ -550,17 +550,20 @@ function remove_checkout_fields( $fields ) {
 		unset( $fields['billing'][ $key ] );
 	}
 
-	// Last name — "Прізвище"
+	// Last name — "Прізвище" (force full-width row, WC defaults it to form-row-last)
 	$fields['billing']['billing_last_name']['label']    = 'Прізвище';
 	$fields['billing']['billing_last_name']['priority'] = 10;
+	$fields['billing']['billing_last_name']['class']    = [ 'form-row-wide' ];
 
-	// First name — "Ім'я та по батькові"
+	// First name — "Ім'я та по батькові" (force full-width row, WC defaults it to form-row-first)
 	$fields['billing']['billing_first_name']['label']    = "Ім'я та по батькові";
 	$fields['billing']['billing_first_name']['priority'] = 20;
+	$fields['billing']['billing_first_name']['class']    = [ 'form-row-wide' ];
 
 	// Phone
 	$fields['billing']['billing_phone']['label']    = 'Номер телефону';
 	$fields['billing']['billing_phone']['priority'] = 30;
+	$fields['billing']['billing_phone']['class']    = [ 'form-row-wide' ];
 
 	// City — reset to plain text input (was hijacked as payment select)
 	$fields['billing']['billing_city'] = [
@@ -589,8 +592,13 @@ function remove_checkout_fields( $fields ) {
 }
 
 // Minimum order amount — 500 UAH
+function gs_min_order_amount() {
+	return 500;
+}
+
+// Backstop: block checkout submission if subtotal is still below minimum
 add_action( 'woocommerce_check_cart_items', function () {
-	$min = 500;
+	$min = gs_min_order_amount();
 	if ( WC()->cart->get_subtotal() < $min ) {
 		wc_add_notice(
 			sprintf(
@@ -601,6 +609,42 @@ add_action( 'woocommerce_check_cart_items', function () {
 		);
 	}
 } );
+
+// Cart page: disable "Оформити замовлення" button below the minimum
+remove_action( 'woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 20 );
+add_action( 'woocommerce_proceed_to_checkout', function () {
+	$min      = gs_min_order_amount();
+	$subtotal = (float) WC()->cart->get_subtotal();
+
+	if ( $subtotal >= $min ) {
+		woocommerce_button_proceed_to_checkout();
+		return;
+	}
+
+	$missing = $min - $subtotal;
+	?>
+	<a href="#" class="checkout-button button alt gs-checkout-disabled" aria-disabled="true" onclick="return false;">
+		<?php esc_html_e( 'Оформити замовлення', 'woocommerce' ); ?>
+	</a>
+	<p class="gs-min-order-notice">
+		Мінімальна сума замовлення — <?php echo wp_kses_post( wc_price( $min ) ); ?>.
+		Додайте ще товарів на <?php echo wp_kses_post( wc_price( $missing ) ); ?>.
+	</p>
+	<style>
+		.gs-checkout-disabled {
+			opacity: .5;
+			cursor: not-allowed;
+			pointer-events: none;
+		}
+		.gs-min-order-notice {
+			color: #c0392b;
+			font-size: 13px;
+			margin-top: 8px;
+			text-align: right;
+		}
+	</style>
+	<?php
+}, 20 );
 
 
 
@@ -753,6 +797,13 @@ add_action( 'wp_ajax_gs_order_print_data', function () {
 		break;
 	}
 
+	// Checkout collects delivery info as billing fields (city + NP branch),
+	// there's no separate shipping address anymore.
+	$shipping_address = implode( ', ', array_filter( [
+		$order->get_billing_city(),
+		$order->get_billing_address_1(),
+	] ) );
+
 	wp_send_json_success( [
 		'number'          => $order->get_order_number(),
 		'date'            => $order->get_date_created()
@@ -762,7 +813,7 @@ add_action( 'wp_ajax_gs_order_print_data', function () {
 		'shipping_method' => $shipping_method,
 		'billing_name'    => trim( $order->get_billing_first_name() . ' ' . $order->get_billing_last_name() ),
 		'billing_phone'   => $order->get_billing_phone(),
-		'shipping_address' => $order->get_formatted_shipping_address(),
+		'shipping_address' => $shipping_address,
 		'items'           => $items,
 		'total'           => number_format( (float) $order->get_total(), 2, '.', '' ),
 		'items_count'     => $order->get_item_count(),
