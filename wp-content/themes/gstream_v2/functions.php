@@ -585,11 +585,57 @@ function remove_checkout_fields( $fields ) {
 		'priority'    => 50,
 	];
 
+	// Payment choice — informational only, no real gateway behind it
+	$fields['billing']['billing_payment_choice'] = [
+		'type'     => 'radio',
+		'label'    => 'Оплата',
+		'options'  => gs_payment_choice_options(),
+		'default'  => 'cod',
+		'required' => true,
+		'class'    => [ 'form-row-wide', 'gs-payment-choice' ],
+		'priority' => 60,
+	];
+
 	// Remove all shipping fields (delivery is via Nova Poshta only)
 	$fields['shipping'] = [];
 
 	return $fields;
 }
+
+function gs_payment_choice_options() {
+	return [
+		'cod'  => 'При отриманні',
+		'bank' => 'На розрахунковий рахунок',
+	];
+}
+
+// Save the payment choice as order meta (informational field, not a real gateway)
+add_action( 'woocommerce_checkout_update_order_meta', function ( $order_id ) {
+	if ( empty( $_POST['billing_payment_choice'] ) ) {
+		return;
+	}
+	$choice  = sanitize_text_field( wp_unslash( $_POST['billing_payment_choice'] ) );
+	$options = gs_payment_choice_options();
+	if ( ! isset( $options[ $choice ] ) ) {
+		return;
+	}
+	$order = wc_get_order( $order_id );
+	if ( $order ) {
+		$order->update_meta_data( '_billing_payment_choice', $choice );
+		$order->save();
+	}
+} );
+
+// Show the payment choice on the admin order edit screen
+add_action( 'woocommerce_admin_order_data_after_billing_address', function ( $order ) {
+	$choice = $order->get_meta( '_billing_payment_choice' );
+	if ( ! $choice ) {
+		return;
+	}
+	$options = gs_payment_choice_options();
+	$label   = $options[ $choice ] ?? $choice;
+	echo '<p><strong>' . esc_html__( 'Оплата', 'woocommerce' ) . ':</strong> ' . esc_html( $label ) . '</p>';
+} );
 
 // Minimum order amount — 500 UAH
 function gs_min_order_amount() {
@@ -804,12 +850,18 @@ add_action( 'wp_ajax_gs_order_print_data', function () {
 		$order->get_billing_address_1(),
 	] ) );
 
+	$payment_choice_key = $order->get_meta( '_billing_payment_choice' );
+	$payment_choices    = gs_payment_choice_options();
+	$payment_choice     = $payment_choice_key && isset( $payment_choices[ $payment_choice_key ] )
+		? $payment_choices[ $payment_choice_key ]
+		: $order->get_payment_method_title();
+
 	wp_send_json_success( [
 		'number'          => $order->get_order_number(),
 		'date'            => $order->get_date_created()
 			? $order->get_date_created()->date_i18n( 'd.m.Y, H:i' )
 			: '',
-		'payment_method'  => $order->get_payment_method_title(),
+		'payment_method'  => $payment_choice,
 		'shipping_method' => $shipping_method,
 		'billing_name'    => trim( $order->get_billing_first_name() . ' ' . $order->get_billing_last_name() ),
 		'billing_phone'   => $order->get_billing_phone(),
